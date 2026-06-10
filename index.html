@@ -1,3 +1,4 @@
+cat > /mnt/user-data/outputs/matura_deutsch_vorbereitung.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -6,428 +7,192 @@
 <title>Matura Deutsch – Manuel Eicher</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0f1117;
-    --bg2: #161b27;
-    --bg3: #1e2535;
-    --bg4: #242d40;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.13);
-    --text: #e8eaf2;
-    --text2: #8b93a8;
-    --text3: #5a6375;
-    --accent: #6c63ff;
-    --accent2: #4f46e5;
-    --accent-glow: rgba(108,99,255,0.18);
-    --gold: #f0c060;
-    --gold-bg: rgba(240,192,96,0.1);
-    --green: #4ade80;
-    --green-bg: rgba(74,222,128,0.08);
-    --red: #f87171;
-    --red-bg: rgba(248,113,113,0.08);
-    --teal: #2dd4bf;
-    --teal-bg: rgba(45,212,191,0.08);
-    --radius: 12px;
-    --radius-sm: 8px;
-    --shadow: 0 4px 24px rgba(0,0,0,0.4);
-  }
+:root{
+  --bg:#0f1117;--bg2:#161b27;--bg3:#1e2535;--bg4:#242d40;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#e8eaf2;--text2:#8b93a8;--text3:#5a6375;
+  --accent:#6c63ff;--accent2:#4f46e5;--accent-glow:rgba(108,99,255,0.18);
+  --gold:#f0c060;--gold-bg:rgba(240,192,96,0.1);
+  --green:#4ade80;--green-bg:rgba(74,222,128,0.08);
+  --red:#f87171;--teal:#2dd4bf;
+  --radius:12px;--radius-sm:8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-size:15px;line-height:1.6;min-height:100vh}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:3px}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+/* HEADER */
+.site-header{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 2rem;position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;height:60px}
+.site-header h1{font-family:'Lora',serif;font-size:18px;font-weight:600;letter-spacing:-0.01em}
+.site-header h1 span{color:var(--accent)}
+.header-meta{font-size:12px;color:var(--text3)}
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    min-height: 100vh;
-  }
+/* LAYOUT */
+.container{max-width:980px;margin:0 auto;padding:2rem 1.5rem}
 
-  /* ── HEADER ── */
-  .site-header {
-    background: var(--bg2);
-    border-bottom: 1px solid var(--border);
-    padding: 0 2rem;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-  }
-  .site-header h1 {
-    font-family: 'Lora', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-  .site-header h1 span { color: var(--accent); }
-  .header-meta { font-size: 12px; color: var(--text3); }
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 2.5rem;margin-bottom:2rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:var(--accent-glow);border-radius:50%;filter:blur(60px);pointer-events:none}
+.hero-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.hero h2{font-family:'Lora',serif;font-size:28px;font-weight:600;margin-bottom:8px;letter-spacing:-0.02em}
+.hero p{color:var(--text2);font-size:14px;max-width:600px}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.25rem}
+.hero-tag{font-size:12px;padding:4px 12px;border-radius:20px;border:1px solid var(--border2);color:var(--text2);background:var(--bg4)}
+.hero-tag.iso{color:var(--gold);border-color:rgba(240,192,96,0.3);background:var(--gold-bg)}
 
-  /* ── LAYOUT ── */
-  .container { max-width: 980px; margin: 0 auto; padding: 2rem 1.5rem; }
+/* SECTION */
+.section-title{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.section-title h3{font-family:'Lora',serif;font-size:20px;font-weight:600}
 
-  /* ── HERO ── */
-  .hero {
-    background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 2rem 2.5rem;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 200px; height: 200px;
-    background: var(--accent-glow);
-    border-radius: 50%;
-    filter: blur(60px);
-    pointer-events: none;
-  }
-  .hero-label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
-  .hero h2 {
-    font-family: 'Lora', serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
-  .hero p { color: var(--text2); font-size: 14px; max-width: 600px; }
-  .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.25rem; }
-  .hero-tag {
-    font-size: 12px; padding: 4px 12px; border-radius: 20px;
-    border: 1px solid var(--border2);
-    color: var(--text2);
-    background: var(--bg4);
-  }
-  .hero-tag.iso { color: var(--gold); border-color: rgba(240,192,96,0.3); background: var(--gold-bg); }
+/* MAIN NAV */
+.main-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:10px}
+.main-nav button{padding:7px 16px;font-size:13px;font-family:'Inter',sans-serif;font-weight:500;border-radius:var(--radius-sm);border:1px solid transparent;background:transparent;color:var(--text2);cursor:pointer;transition:all .15s}
+.main-nav button:hover{background:var(--bg3);color:var(--text)}
+.main-nav button.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 12px rgba(108,99,255,0.35)}
 
-  /* ── SECTION TITLES ── */
-  .section-title {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 1rem;
-  }
-  .section-title h3 {
-    font-family: 'Lora', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text);
-  }
-  .section-title .pill {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: 20px;
-    background: var(--accent-glow);
-    color: var(--accent);
-    border: 1px solid rgba(108,99,255,0.25);
-  }
+/* PANELS */
+.panel{display:none}.panel.active{display:block}
 
-  /* ── MAIN NAV TABS ── */
-  .main-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 1.5rem;
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 10px;
-  }
-  .main-nav button {
-    padding: 7px 16px;
-    font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    border-radius: var(--radius-sm);
-    border: 1px solid transparent;
-    background: transparent;
-    color: var(--text2);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .main-nav button:hover { background: var(--bg3); color: var(--text); }
-  .main-nav button.active {
-    background: var(--accent);
-    color: #fff;
-    border-color: var(--accent);
-    box-shadow: 0 2px 12px rgba(108,99,255,0.35);
-  }
+/* WERK CARD */
+.werk-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:0}
+.werk-header{padding:1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.werk-title-block .title{font-family:'Lora',serif;font-size:22px;font-weight:600;margin-bottom:4px}
+.werk-title-block .sub{font-size:13px;color:var(--text2)}
+.badge-row{display:flex;gap:6px;flex-wrap:wrap;align-items:flex-start}
+.badge{font-size:11px;font-weight:600;padding:4px 11px;border-radius:20px;white-space:nowrap}
+.badge-epik{background:rgba(56,189,248,0.12);color:#38bdf8;border:1px solid rgba(56,189,248,0.2)}
+.badge-drama{background:var(--accent-glow);color:#a78bfa;border:1px solid rgba(167,139,250,0.25)}
+.badge-lyrik{background:var(--green-bg);color:var(--green);border:1px solid rgba(74,222,128,0.2)}
+.badge-u{background:var(--gold-bg);color:var(--gold);border:1px solid rgba(240,192,96,0.25)}
+.badge-p{background:var(--bg4);color:var(--text3);border:1px solid var(--border2)}
 
-  /* ── PANELS ── */
-  .panel { display: none; }
-  .panel.active { display: block; }
+/* AUTOR BUTTON */
+.autor-btn{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:5px 13px;font-size:12px;font-weight:500;font-family:'Inter',sans-serif;background:var(--bg3);border:1px solid var(--border2);border-radius:20px;color:var(--text2);cursor:pointer;transition:all .15s}
+.autor-btn:hover{background:var(--bg4);color:var(--text);border-color:var(--accent)}
+.autor-btn::before{content:'👤';font-size:12px}
 
-  /* ── WERK CARD ── */
-  .werk-card {
-    background: var(--bg2);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    margin-bottom: 0;
-  }
-  .werk-header {
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-  }
-  .werk-title-block .title {
-    font-family: 'Lora', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 4px;
-  }
-  .werk-title-block .sub { font-size: 13px; color: var(--text2); }
-  .badge-row { display: flex; gap: 6px; flex-wrap: wrap; }
-  .badge {
-    font-size: 11px; font-weight: 600;
-    padding: 4px 11px; border-radius: 20px;
-    white-space: nowrap;
-  }
-  .badge-epik  { background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.2); }
-  .badge-drama { background: var(--accent-glow); color: #a78bfa; border: 1px solid rgba(167,139,250,0.25); }
-  .badge-lyrik { background: var(--green-bg); color: var(--green); border: 1px solid rgba(74,222,128,0.2); }
-  .badge-u     { background: var(--gold-bg); color: var(--gold); border: 1px solid rgba(240,192,96,0.25); }
-  .badge-p     { background: var(--bg4); color: var(--text3); border: 1px solid var(--border2); }
+/* SUB NAV */
+.sub-nav{display:flex;border-bottom:1px solid var(--border);overflow-x:auto}
+.sub-nav button{padding:10px 18px;font-size:13px;font-family:'Inter',sans-serif;white-space:nowrap;border:none;border-bottom:2px solid transparent;background:transparent;color:var(--text2);cursor:pointer;transition:all .15s;margin-bottom:-1px}
+.sub-nav button:hover{color:var(--text);background:var(--bg3)}
+.sub-nav button.active{color:var(--accent);border-bottom-color:var(--accent);font-weight:500}
+.sub-panel{display:none;padding:1.5rem}.sub-panel.active{display:block}
 
-  /* ── WERK BODY TABS ── */
-  .werk-body { padding: 0; }
-  .sub-nav {
-    display: flex;
-    border-bottom: 1px solid var(--border);
-    overflow-x: auto;
-  }
-  .sub-nav button {
-    padding: 10px 18px;
-    font-size: 13px;
-    font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-    border: none;
-    border-bottom: 2px solid transparent;
-    background: transparent;
-    color: var(--text2);
-    cursor: pointer;
-    transition: all 0.15s;
-    margin-bottom: -1px;
-  }
-  .sub-nav button:hover { color: var(--text); background: var(--bg3); }
-  .sub-nav button.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+/* CONTENT */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.info-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem}
+.info-box .lbl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:8px}
+.kv{display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid var(--border);font-size:13px}
+.kv:last-child{border-bottom:none}
+.kv .k{color:var(--text2)}.kv .v{color:var(--text);text-align:right}
+.prose{font-size:14px;color:var(--text2);line-height:1.75}
+.prose strong{color:var(--text);font-weight:500}
+.iso-tag{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;background:var(--gold-bg);color:var(--gold);border:1px solid rgba(240,192,96,0.25);margin-top:10px}
+.iso-tag::before{content:'◆';font-size:8px}
+.textstelle-block{background:var(--bg3);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:1rem 1.25rem;margin:.75rem 0;font-size:14px;font-family:'Lora',serif;font-style:italic;color:var(--text);line-height:1.8;white-space:pre-line}
+.interp-box{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem 1.25rem;margin-top:.5rem;font-size:13.5px;color:var(--text2);line-height:1.75}
+.interp-box .interp-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.tipp-box{display:flex;gap:10px;background:var(--green-bg);border:1px solid rgba(74,222,128,0.2);border-radius:var(--radius-sm);padding:.85rem 1rem;font-size:13px;color:#86efac;line-height:1.65;margin-top:.75rem}
+.tipp-box::before{content:'💡';font-size:14px;flex-shrink:0;margin-top:1px}
+.compare-row{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px}
+.compare-row:last-child{border-bottom:none}
+.compare-name{font-weight:500;color:var(--text);min-width:175px;flex-shrink:0}
+.compare-text{color:var(--text2);line-height:1.6}
+.quote-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem 1.25rem;margin-bottom:8px;display:flex;gap:10px;font-size:13.5px;color:var(--text2);line-height:1.65;font-style:italic}
+.quote-card::before{content:'«';color:var(--accent);font-size:22px;font-family:'Lora',serif;line-height:1;flex-shrink:0;margin-top:2px}
+.epoch-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.epoch-row:last-child{border-bottom:none}
+.epoch-year{color:var(--accent);font-weight:600;min-width:160px;flex-shrink:0}
+.epoch-text{color:var(--text2)}
+.star-badge{font-size:11px;font-weight:600;padding:3px 9px;border-radius:20px;background:var(--gold-bg);color:var(--gold);border:1px solid rgba(240,192,96,0.3);margin-left:8px}
 
-  .sub-panel { display: none; padding: 1.5rem; }
-  .sub-panel.active { display: block; }
+/* FIGUREN */
+.figur-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem 1.25rem;margin-bottom:10px}
+.figur-name{font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px;display:flex;align-items:center;gap:8px}
+.figur-role{font-size:11px;font-weight:500;padding:2px 8px;border-radius:20px;background:var(--accent-glow);color:#a78bfa;border:1px solid rgba(167,139,250,0.2)}
+.figur-desc{font-size:13px;color:var(--text2);line-height:1.65;margin-top:4px}
 
-  /* ── CONTENT PIECES ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-  }
-  .info-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1rem;
-  }
-  .info-box .lbl {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text3);
-    margin-bottom: 8px;
-  }
-  .kv { display: flex; justify-content: space-between; padding: 4px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-  .kv:last-child { border-bottom: none; }
-  .kv .k { color: var(--text2); }
-  .kv .v { color: var(--text); text-align: right; }
+/* RILKE */
+.rilke-nav{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:1.25rem}
+.rilke-nav button{padding:6px 13px;font-size:12px;font-family:'Inter',sans-serif;border-radius:20px;border:1px solid var(--border2);background:transparent;color:var(--text2);cursor:pointer;transition:all .15s}
+.rilke-nav button:hover{background:var(--bg3);color:var(--text)}
+.rilke-nav button.active{background:var(--green-bg);color:var(--green);border-color:rgba(74,222,128,0.3);font-weight:500}
 
-  .prose { font-size: 14px; color: var(--text2); line-height: 1.75; }
-  .prose strong { color: var(--text); font-weight: 500; }
+/* GEDICHT */
+.gedicht-wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:.5rem}
+@media(max-width:700px){.gedicht-wrap{grid-template-columns:1fr}}
+.gedicht-text{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.25rem}
+.gedicht-text .g-lbl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.gedicht-text pre{font-family:'Lora',serif;font-size:13.5px;font-style:italic;color:var(--text2);line-height:1.9;white-space:pre-wrap}
+.hl{background:rgba(108,99,255,0.25);color:var(--text);border-radius:3px;padding:0 2px}
+.gedicht-interp{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1.25rem;font-size:13.5px;color:var(--text2);line-height:1.75}
+.gedicht-interp .g-lbl{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.gedicht-interp h4{font-size:12px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin:12px 0 4px}
 
-  .iso-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 5px 13px;
-    border-radius: 20px;
-    background: var(--gold-bg);
-    color: var(--gold);
-    border: 1px solid rgba(240,192,96,0.25);
-    margin-top: 10px;
-  }
-  .iso-tag::before { content: '◆'; font-size: 8px; }
+/* VERGLEICHSFRAGEN */
+.vfrage{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);margin-bottom:8px;overflow:hidden}
+.vfrage-q{padding:12px 1.25rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:14px;color:var(--text2);transition:all .15s;user-select:none}
+.vfrage-q:hover{background:var(--bg4);color:var(--text)}
+.vfrage-q.open{color:var(--accent);background:var(--bg4)}
+.vfrage-q .arrow{font-size:12px;transition:transform .2s;flex-shrink:0;margin-left:12px}
+.vfrage-q.open .arrow{transform:rotate(90deg)}
+.vfrage-a{display:none;padding:0 1.25rem 1.25rem;border-top:1px solid var(--border);font-size:13.5px;color:var(--text2);line-height:1.75}
+.vfrage-a.open{display:block}
+.vfrage-a p{margin-top:1rem}
+.vfrage-a strong{color:var(--text);font-weight:500}
+.vfrage-a .werk-ref{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;background:var(--accent-glow);color:#a78bfa;border:1px solid rgba(167,139,250,0.2);margin:2px 3px 2px 0}
 
-  .textstelle-block {
-    background: var(--bg3);
-    border-left: 3px solid var(--accent);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 1rem 1.25rem;
-    margin: 0.75rem 0;
-    font-size: 14px;
-    font-family: 'Lora', serif;
-    font-style: italic;
-    color: var(--text);
-    line-height: 1.8;
-    white-space: pre-line;
-  }
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:500;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--radius);max-width:700px;width:100%;max-height:85vh;overflow-y:auto;position:relative}
+.modal-header{padding:1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;position:sticky;top:0;background:var(--bg2);z-index:10}
+.modal-header h3{font-family:'Lora',serif;font-size:20px;font-weight:600}
+.modal-header p{font-size:13px;color:var(--text2);margin-top:3px}
+.modal-close{background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius-sm);padding:6px 12px;font-size:13px;color:var(--text2);cursor:pointer;flex-shrink:0;margin-left:1rem;font-family:'Inter',sans-serif}
+.modal-close:hover{background:var(--bg4);color:var(--text)}
+.modal-body{padding:1.5rem}
+.modal-section{margin-bottom:1.5rem}
+.modal-section:last-child{margin-bottom:0}
+.modal-section-title{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border)}
+.modal-section p{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:8px}
+.modal-section p:last-child{margin-bottom:0}
+.modal-section strong{color:var(--text);font-weight:500}
+.modal-timeline{display:flex;flex-direction:column;gap:10px}
+.tl-item{display:flex;gap:12px;font-size:13px}
+.tl-year{color:var(--accent);font-weight:600;min-width:50px;flex-shrink:0}
+.tl-text{color:var(--text2);line-height:1.6}
 
-  .interp-box {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1rem 1.25rem;
-    margin-top: 0.5rem;
-    font-size: 13.5px;
-    color: var(--text2);
-    line-height: 1.75;
-  }
-  .interp-box .interp-label {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 6px;
-  }
+/* FOOTER */
+.site-footer{text-align:center;padding:2rem;color:var(--text3);font-size:12px;border-top:1px solid var(--border);margin-top:3rem}
 
-  .tipp-box {
-    display: flex;
-    gap: 10px;
-    background: var(--green-bg);
-    border: 1px solid rgba(74,222,128,0.2);
-    border-radius: var(--radius-sm);
-    padding: 0.85rem 1rem;
-    font-size: 13px;
-    color: #86efac;
-    line-height: 1.65;
-    margin-top: 0.75rem;
-  }
-  .tipp-box::before { content: '💡'; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
-
-  /* ── COMPARE TABLE ── */
-  .compare-row {
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13.5px;
-  }
-  .compare-row:last-child { border-bottom: none; }
-  .compare-name { font-weight: 500; color: var(--text); min-width: 175px; flex-shrink: 0; }
-  .compare-text { color: var(--text2); line-height: 1.6; }
-
-  .quote-card {
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    padding: 1rem 1.25rem;
-    margin-bottom: 8px;
-    display: flex;
-    gap: 10px;
-    font-size: 13.5px;
-    color: var(--text2);
-    line-height: 1.65;
-    font-style: italic;
-  }
-  .quote-card::before { content: '«'; color: var(--accent); font-size: 22px; font-family: 'Lora', serif; line-height: 1; flex-shrink: 0; margin-top: 2px; }
-
-  .epoch-row {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    padding: 8px 0;
-    border-bottom: 1px solid var(--border);
-    font-size: 13px;
-  }
-  .epoch-row:last-child { border-bottom: none; }
-  .epoch-year { color: var(--accent); font-weight: 600; min-width: 160px; flex-shrink: 0; }
-  .epoch-text { color: var(--text2); }
-
-  .star-badge {
-    font-size: 11px; font-weight: 600;
-    padding: 3px 9px;
-    border-radius: 20px;
-    background: var(--gold-bg);
-    color: var(--gold);
-    border: 1px solid rgba(240,192,96,0.3);
-    margin-left: 8px;
-  }
-
-  /* ── RILKE SECTION ── */
-  .rilke-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    margin-bottom: 1.25rem;
-  }
-  .rilke-nav button {
-    padding: 6px 13px;
-    font-size: 12px;
-    font-family: 'Inter', sans-serif;
-    border-radius: 20px;
-    border: 1px solid var(--border2);
-    background: transparent;
-    color: var(--text2);
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .rilke-nav button:hover { background: var(--bg3); color: var(--text); }
-  .rilke-nav button.active {
-    background: var(--green-bg);
-    color: var(--green);
-    border-color: rgba(74,222,128,0.3);
-    font-weight: 500;
-  }
-
-  /* ── FOOTER ── */
-  .site-footer {
-    text-align: center;
-    padding: 2rem;
-    color: var(--text3);
-    font-size: 12px;
-    border-top: 1px solid var(--border);
-    margin-top: 3rem;
-  }
-
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 6px; height: 6px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--bg4); border-radius: 3px; }
-
-  @media (max-width: 600px) {
-    .hero h2 { font-size: 20px; }
-    .werk-header { flex-direction: column; }
-    .container { padding: 1rem; }
-    .site-header { padding: 0 1rem; }
-    .compare-name { min-width: 130px; }
-  }
+@media(max-width:600px){
+  .hero h2{font-size:20px}
+  .werk-header{flex-direction:column}
+  .container{padding:1rem}
+  .site-header{padding:0 1rem}
+  .compare-name{min-width:120px}
+  .gedicht-wrap{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+
+<!-- MODAL CONTAINER -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-header">
+      <div>
+        <h3 id="modal-title"></h3>
+        <p id="modal-subtitle"></p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">✕ Schliessen</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
 
 <header class="site-header">
   <h1>Matura Deutsch <span>2026</span></h1>
@@ -436,655 +201,1171 @@
 
 <div class="container">
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-label">Mündliche Maturaprüfung</div>
-    <h2>Überthema: Isolation</h2>
-    <p>6 Werke · 3 Gattungen · 2+ Epochen · 10 Rilke-Gedichte. Alles, was du für morgen brauchst – kompakt und querverknüpft.</p>
-    <div class="hero-tags">
-      <span class="hero-tag">Epik (4 Werke)</span>
-      <span class="hero-tag">Dramatik (1 Werk)</span>
-      <span class="hero-tag">Lyrik – Rilke</span>
-      <span class="hero-tag">Vor 1900: Kleist</span>
-      <span class="hero-tag iso">◆ Isolation als roter Faden</span>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Mündliche Maturaprüfung</div>
+  <h2>Überthema: Isolation</h2>
+  <p>6 Werke · 3 Gattungen · 2+ Epochen · 10 Rilke-Gedichte. Alles, was du für morgen brauchst – kompakt und querverknüpft.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">Epik (4 Werke)</span>
+    <span class="hero-tag">Dramatik (1 Werk)</span>
+    <span class="hero-tag">Lyrik – Rilke</span>
+    <span class="hero-tag">Vor 1900: Kleist</span>
+    <span class="hero-tag iso">◆ Isolation als roter Faden</span>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<div class="main-nav">
+  <button class="active" onclick="showMain('parfum',this)">Das Parfum</button>
+  <button onclick="showMain('verwandlung',this)">Die Verwandlung</button>
+  <button onclick="showMain('jugend',this)">Jugend ohne Gott</button>
+  <button onclick="showMain('marquise',this)">Marquise von O.</button>
+  <button onclick="showMain('physiker',this)">Die Physiker</button>
+  <button onclick="showMain('rilke',this)">Rilke – Lyrik</button>
+  <button onclick="showMain('uebergreifend',this)">Werkübergreifend</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     DAS PARFUM
+══════════════════════════════════════════ -->
+<div id="parfum" class="panel active">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Das Parfum</div>
+      <div class="sub">Patrick Süskind · 1985</div>
+      <button class="autor-btn" onclick="openModal('suskind')">Autor & Entstehung</button>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-epik">Epik</span>
+      <span class="badge badge-u">Unterricht</span>
     </div>
   </div>
-
-  <!-- MAIN NAV -->
-  <div class="main-nav">
-    <button class="active" onclick="showMain('parfum', this)">Das Parfum</button>
-    <button onclick="showMain('verwandlung', this)">Die Verwandlung</button>
-    <button onclick="showMain('jugend', this)">Jugend ohne Gott</button>
-    <button onclick="showMain('marquise', this)">Marquise von O.</button>
-    <button onclick="showMain('physiker', this)">Die Physiker</button>
-    <button onclick="showMain('rilke', this)">Rilke – Lyrik</button>
-    <button onclick="showMain('uebergreifend', this)">Werkübergreifend</button>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       PANEL: DAS PARFUM
-  ═══════════════════════════════════════════════ -->
-  <div id="parfum" class="panel active">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Das Parfum</div>
-          <div class="sub">Patrick Süskind · 1985</div>
+  <div class="werk-body">
+    <div class="sub-nav">
+      <button class="active" onclick="showSub('p','fakten',this)">Fakten</button>
+      <button onclick="showSub('p','figuren',this)">Figuren</button>
+      <button onclick="showSub('p','inhalt',this)">Inhalt & Themen</button>
+      <button onclick="showSub('p','isolation',this)">Isolation</button>
+      <button onclick="showSub('p','text',this)">Textstelle & Interpretation</button>
+    </div>
+    <div id="p-fakten" class="sub-panel active">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="lbl">Werk-Fakten</div>
+          <div class="kv"><span class="k">Gattung</span><span class="v">Historischer Roman</span></div>
+          <div class="kv"><span class="k">Epoche</span><span class="v">Postmoderne</span></div>
+          <div class="kv"><span class="k">Setting</span><span class="v">Frankreich, 18. Jh.</span></div>
+          <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Auktorialer Erzähler</span></div>
+          <div class="kv"><span class="k">Sprache</span><span class="v">Reich, ironisch, sensorisch</span></div>
+          <div class="kv"><span class="k">Untertitel</span><span class="v">Die Geschichte eines Mörders</span></div>
         </div>
-        <div class="badge-row">
-          <span class="badge badge-epik">Epik</span>
-          <span class="badge badge-u">Unterricht</span>
-        </div>
-      </div>
-      <div class="werk-body">
-        <div class="sub-nav">
-          <button class="active" onclick="showSub('p', 'fakten', this)">Fakten</button>
-          <button onclick="showSub('p', 'inhalt', this)">Inhalt & Themen</button>
-          <button onclick="showSub('p', 'isolation', this)">Isolation</button>
-          <button onclick="showSub('p', 'text', this)">Textstelle & Interpretation</button>
-        </div>
-        <div id="p-fakten" class="sub-panel active">
-          <div class="info-grid">
-            <div class="info-box">
-              <div class="lbl">Werk-Fakten</div>
-              <div class="kv"><span class="k">Gattung</span><span class="v">Historischer Roman</span></div>
-              <div class="kv"><span class="k">Epoche</span><span class="v">Postmoderne</span></div>
-              <div class="kv"><span class="k">Setting</span><span class="v">Frankreich, 18. Jh.</span></div>
-              <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Auktorialer Erzähler</span></div>
-              <div class="kv"><span class="k">Sprache</span><span class="v">Reich, ironisch, sensorisch</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Autor</div>
-              <div class="prose">Patrick Süskind (* 1949) ist ein äusserst zurückgezogener, medienscheuer Autor – selbst eine Art isolierte Figur. <strong>Das Parfum</strong> ist sein bedeutendstes Werk und eines der meistverkauften deutschen Romane überhaupt. Postmoderne: Intertextualität, Genremix (Krimi, Bildungsroman, Fantastik), selbstreflexive Ironie des auktorialen Erzählers.</div>
-            </div>
-          </div>
-        </div>
-        <div id="p-inhalt" class="sub-panel">
-          <p class="prose">Jean-Baptiste Grenouille wird in Paris in extremster Armut geboren. Er besitzt <strong>keinen eigenen Körpergeruch</strong>, hat aber ein übernatürliches Geruchstalent. Sein ganzes Leben ist geprägt von absolutem Ausgeschlossensein aus der menschlichen Gemeinschaft – niemand will ihn, niemand mag ihn, obwohl sie nicht wissen warum.</p>
-          <br>
-          <p class="prose">Er tötet junge Mädchen, um ihren Duft zu konservieren, und schafft das ultimative Parfum – das bei der Menge Anbetung auslöst. Am Ende lässt er sich von einem Mob freiwillig zerreissen. Kernthemen: <strong>Genie und Wahnsinn, fehlende Empathie, manipulative Macht, das Streben nach Identität durch Äusserlichkeiten, Schöpfer vs. Schöpfung.</strong></p>
-        </div>
-        <div id="p-isolation" class="sub-panel">
-          <p class="prose">Grenouille ist <strong>dreifach isoliert</strong>:</p>
-          <br>
-          <div class="compare-row"><span class="compare-name">Körperlich</span><span class="compare-text">Kein Eigengeruch = kein sozialer «Ausweis». Menschen wenden sich intuitiv von ihm ab, ohne den Grund zu kennen.</span></div>
-          <div class="compare-row"><span class="compare-name">Sozial</span><span class="compare-text">Niemand erkennt sein Genie an. Er wird von Amme zu Amme, Herr zu Herr weitergereicht wie ein nutzloses Objekt.</span></div>
-          <div class="compare-row" style="border:none"><span class="compare-name">Innerlich</span><span class="compare-text">Keine Fähigkeit zu echter Bindung. Seine Isolation ist nicht nur Leid – sie ist auch Quelle seiner destruktiven Macht und seines künstlerischen Genies.</span></div>
-          <div class="iso-tag">Isolation durch fehlende Identität / radikale Andersartigkeit</div>
-        </div>
-        <div id="p-text" class="sub-panel">
-          <div class="textstelle-block">«Er war ein Abscheu, und zwar von Anfang an. [...] niemand wollte ihn haben. Und wenn er dann, nach langem Suchen, doch eine Amme gefunden hatte, so pflegte diese nach einigen Tagen, ja manchmal schon nach wenigen Stunden, des Kindes überdrüssig zu werden [...].»</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Die Passage etabliert Grenouilles Ausgestossensein von Geburt an. «Abscheu» als erste Charakterisierung setzt seinen Status als absoluter Aussenseiter sofort. Die Häufung von Ablehnungshandlungen (niemand wollte, überdrüssig werden) mit Zeitgefälle («einigen Tagen... wenigen Stunden») zeigt Eskalation der Ablehnung. Der auktoriale Erzähler berichtet sachlich-kalt – keine Empathie für das Kind, spiegelt die Gleichgültigkeit der Gesellschaft. Sprachlich: kurze, abgehackte Rhythmik unterstreicht Unerbittlichkeit.
-          </div>
-          <div class="tipp-box">Vergleich mit Kafka: Gregor Samsas Verwandlung ist ebenfalls eine körperliche Ausgrenzung – aber während Gregor noch Empfindungen hat, fehlen Grenouille menschliche Gefühle vollständig. Beide werden von Familie / Gesellschaft abgestossen, aber aus verschiedenen Gründen.</div>
+        <div class="info-box">
+          <div class="lbl">Literaturgeschichtliche Einordnung</div>
+          <p class="prose">Postmoderne: <strong>Intertextualität</strong> (Anspielungen auf Bildungsroman, Schauerroman, Kriminalroman), Genremix, Metafiktion. Der auktoriale Erzähler tritt ironisch aus dem Text heraus und kommentiert distanziert. Süskind spielt mit literarischen Konventionen, um sie zu untergraben.</p>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       PANEL: DIE VERWANDLUNG
-  ═══════════════════════════════════════════════ -->
-  <div id="verwandlung" class="panel">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Die Verwandlung</div>
-          <div class="sub">Franz Kafka · 1915</div>
-        </div>
-        <div class="badge-row">
-          <span class="badge badge-epik">Epik</span>
-          <span class="badge badge-u">Unterricht</span>
-        </div>
+    <div id="p-figuren" class="sub-panel">
+      <div class="figur-card">
+        <div class="figur-name">Jean-Baptiste Grenouille <span class="figur-role">Protagonist</span></div>
+        <div class="figur-desc">Geboren 1738 am Pariser Fischmarkt, Waisenkind. Besitzt keinen eigenen Körpergeruch – was ihn von Geburt an aus der Gesellschaft ausgrenzt – aber ein übernatürliches Geruchstalent. Introvertiert, empathielos, besessen. Er entwickelt sich vom misshandelten Kind zum Serienmörder. Sein Name «Grenouille» (franz. Frosch) unterstreicht seine abstoßende, kriechende Natur.</div>
       </div>
-      <div class="werk-body">
-        <div class="sub-nav">
-          <button class="active" onclick="showSub('v', 'fakten', this)">Fakten</button>
-          <button onclick="showSub('v', 'inhalt', this)">Inhalt & Themen</button>
-          <button onclick="showSub('v', 'isolation', this)">Isolation</button>
-          <button onclick="showSub('v', 'text', this)">Textstelle & Interpretation</button>
-        </div>
-        <div id="v-fakten" class="sub-panel active">
-          <div class="info-grid">
-            <div class="info-box">
-              <div class="lbl">Werk-Fakten</div>
-              <div class="kv"><span class="k">Gattung</span><span class="v">Novelle / Erzählung</span></div>
-              <div class="kv"><span class="k">Epoche</span><span class="v">Expressionismus / Moderne</span></div>
-              <div class="kv"><span class="k">Setting</span><span class="v">Bürgerliche Wohnung, Prag</span></div>
-              <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Personaler Erzähler</span></div>
-              <div class="kv"><span class="k">Sprache</span><span class="v">Sachlich, nüchtern, bürokratisch</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Autor</div>
-              <div class="prose">Franz Kafka (1883–1924), Prager Jude, empfand die bürokratische Welt als bedrohlich – stark autobiografisch (Verhältnis zum dominanten Vater). Expressionismus: Verzerrung der Realität, Entfremdung, Absurdes. <strong>«Kafkaesk»</strong> ist heute ein Adjektiv für bürokratische Absurdität – Beweis seines literarischen Einflusses.</div>
-            </div>
-          </div>
-        </div>
-        <div id="v-inhalt" class="sub-panel">
-          <p class="prose">Gregor Samsa erwacht als <strong>«ungeheueres Ungeziefer»</strong>. Er versucht zunächst, seinen Alltag (besonders als Ernährer der Familie) aufrechtzuerhalten. Die Familie reagiert mit Erschrecken, Mitleid, dann zunehmendem Ekel und schliesslicher Abwendung. Gregor stirbt vereinsamt in seinem Zimmer – die Familie atmet erleichtert auf.</p>
-          <br>
-          <p class="prose">Kernthemen: <strong>Entfremdung, Funktionalisierung des Menschen, kapitalistische Ausbeutung, Familienstrukturen, Identitätsverlust durch Rollenzwang.</strong></p>
-        </div>
-        <div id="v-isolation" class="sub-panel">
-          <p class="prose">Gregors Isolation entsteht primär durch den <strong>Verlust seiner Funktion als Ernährer</strong>. Sein Zimmer wird zur physischen Isolation – er darf nicht mehr raus, wird eingesperrt. Die Verwandlung kann als Metapher für den Menschen gelesen werden, der durch gesellschaftliche Nutzlosigkeit unsichtbar wird.</p>
-          <br>
-          <div class="tipp-box">Gregor war schon VOR der Verwandlung isoliert: versklavt durch Schulden, emotionell vereinsamt, von der Familie ausgebeutet. Die körperliche Verwandlung macht nur sichtbar, was vorher schon existierte – die seelische Entfremdung.</div>
-          <div class="iso-tag">Isolation durch Entfremdung & Funktionsverlust</div>
-        </div>
-        <div id="v-text" class="sub-panel">
-          <div class="textstelle-block">«Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt.»</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Der berühmteste Einstiegssatz der deutschen Literatur vereint Banales und Ungeheurliches. «Eines Morgens» ist alltäglicher Tagesanfang – das Absurde wird ohne Erklärung, ohne Erschrecken gesetzt (In-medias-res). «Ungeheueres» vermeidet ein konkretes Tier, betont Gregors Würdelosigkeit. Die sachliche Erzählhaltung ohne Kommentar spiegelt die gesellschaftliche Gleichgültigkeit gegenüber dem Leid des Einzelnen.
-          </div>
-        </div>
+      <div class="figur-card">
+        <div class="figur-name">Giuseppe Baldini <span class="figur-role">Mentor / Ausbeuter</span></div>
+        <div class="figur-desc">Alternder Parfumeur in Paris, der Grenouilles Talent ausbeutet, um seine Karriere zu retten. Repräsentiert den eitlen, opportunistischen Bürger, der Grenouilles Genie instrumentalisiert. Stirbt kurz nach Grenouilles Weggang – als hätte er ohne ihn keinen Wert mehr.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Père Terrier / Madame Gaillard <span class="figur-role">Ammen / frühe Bezugspersonen</span></div>
+        <div class="figur-desc">Verkörpern die gesellschaftliche Kälte und den Pragmatismus, mit dem Grenouilles Kindheit geprägt wird. Madame Gaillard nimmt Kinder auf, weil sie Geld bekommt – keine Liebe, nur Funktion. Sie verstärken Grenouilles frühe Isolation.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Antoine Richis <span class="figur-role">Vater / Antagonist</span></div>
+        <div class="figur-desc">Reicher Kaufmann und Vater von Laure – Grenouilles letztem Opfer. Er ist der einzige, der Grenouilles Muster erkennt und versucht, seine Tochter zu schützen. Trotzdem scheitert er. Steht für aufgeklärte Vernunft, die gegen das Irrationale chancenlos ist.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Laure Richis <span class="figur-role">Letztes Opfer / Symbol</span></div>
+        <div class="figur-desc">Tochter von Antoine Richis, das ultimative Opfer. Ihr Duft repräsentiert die Vollkommenheit, nach der Grenouille sein ganzes Leben gesucht hat. Sie ist weniger Figur als Symbol – das unerreichbare Ideal.</div>
+      </div>
+    </div>
+    <div id="p-inhalt" class="sub-panel">
+      <p class="prose">Jean-Baptiste Grenouille wird 1738 in Paris in extremster Armut geboren, direkt unter einem Fischstand. Er besitzt <strong>keinen eigenen Körpergeruch</strong>, hat aber ein übernatürliches Geruchstalent – er kann alles erschnuppern, sogar Emotionen und unsichtbare Substanzen. Sein Leben ist geprägt von totalem Ausgeschlossensein: Ammen verstossen ihn, er wächst in einem Waisenhaus auf, wird als Lohngerberei-Arbeiter ausgebeutet.</p>
+      <br>
+      <p class="prose">Er tötet zum ersten Mal ein junges Mädchen, um ihren Duft einzufangen. Er lernt die Kunst der Parfumherstellung bei Baldini und arbeitet sich zum meisterhaften Parfumeur vor. Er tötet 25 Mädchen, destilliert ihre Düfte und schafft das <strong>ultimative Parfum</strong> – das bei der versammelten Menge eine unkontrollierbare Liebe auslöst. Statt hingerichtet zu werden, wird er verehrt. Am Ende kehrt er nach Paris zurück und lässt sich von einem Mob freiwillig zerreissen.</p>
+      <br>
+      <p class="prose">Kernthemen: <strong>Genie und Wahnsinn · fehlende Empathie als Gefahr · manipulative Macht · das Streben nach Identität durch Äusserlichkeiten · Schöpfer vs. Schöpfung · Gesellschaftskritik an oberflächlicher Wertung</strong></p>
+    </div>
+    <div id="p-isolation" class="sub-panel">
+      <p class="prose" style="margin-bottom:1rem">Grenouille ist <strong>dreifach isoliert</strong>:</p>
+      <div class="compare-row"><span class="compare-name">Körperlich</span><span class="compare-text">Kein Eigengeruch = kein sozialer «Ausweis». Menschen wenden sich intuitiv von ihm ab, ohne den Grund zu kennen. Er ist buchstäblich nicht riechbar – nicht existent im menschlichen Sinne.</span></div>
+      <div class="compare-row"><span class="compare-name">Sozial</span><span class="compare-text">Er wird von Amme zu Amme, Herr zu Herr weitergereicht wie ein nutzloses Objekt. Niemand erkennt sein Genie an. Er hat keine Freunde, keine Familie, keinen Platz in einer Gemeinschaft.</span></div>
+      <div class="compare-row" style="border:none"><span class="compare-name">Innerlich / psychisch</span><span class="compare-text">Grenouille hat keinerlei Fähigkeit zu echten Gefühlen oder Bindungen. Seine Isolation ist nicht nur Leid – sie ist auch Quelle seiner destruktiven Macht. Wer nie Liebe empfangen hat, kann sie nicht geben.</span></div>
+      <div class="iso-tag">Isolation durch fehlende Identität / radikale Andersartigkeit</div>
+      <div class="tipp-box">Grenouille ist das extremste Isolationsbeispiel: Anders als Gregor Samsa (der sich nach Kontakt sehnt) empfindet Grenouille keine Sehnsucht nach Gemeinschaft. Seine Isolation ist so tief, dass sie zum Antrieb seiner Verbrechen wird.</div>
+    </div>
+    <div id="p-text" class="sub-panel">
+      <div class="textstelle-block">«Er war ein Abscheu, und zwar von Anfang an. [...] niemand wollte ihn haben. Und wenn er dann, nach langem Suchen, doch eine Amme gefunden hatte, so pflegte diese nach einigen Tagen, ja manchmal schon nach wenigen Stunden, des Kindes überdrüssig zu werden [...].»</div>
+      <div class="interp-box">
+        <div class="interp-label">Interpretation</div>
+        <p>Die Passage etabliert Grenouilles Ausgestossensein von Geburt an – der auktoriale Erzähler beginnt mit einer radikalen Charakterisierung: «Abscheu». Kein Mitleid, kein Erklärungsversuch – das Kind wird als abstoßend eingeführt, bevor wir irgendetwas über es wissen. Das ist programmatisch für den ganzen Roman.</p>
+        <p style="margin-top:8px">Die Häufung von Ablehnungshandlungen mit zeitlicher Eskalation («einigen Tagen – wenigen Stunden») zeigt, wie die Ablehnung sich steigert und beschleunigt: je länger die Leute mit ihm zusammen sind, desto unerträglicher wird er ihnen. Das Verb «überdrüssig werden» ist besonders hart – es beschreibt nicht Angst oder Feindschaft, sondern Gleichgültigkeit und Erschöpfung. <strong>Grenouille ist nicht gefürchtet, er ist lästig.</strong> Das ist eine tiefere Form der Erniedrigung.</p>
+        <p style="margin-top:8px">Sprachlich: kurze, abgehackte Satzstruktur mit eingeschobenen Temporal-Adverbien erzeugt eine protokollarische Kälte – der Erzähler berichtet wie ein sachlicher Chronist. Das spiegelt die gesellschaftliche Gleichgültigkeit gegenüber dem Leid des Kindes.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Kafka:</strong> Gregor Samsas Verwandlung provoziert ähnliche Ablehnung – aber Gregor war einmal geliebt. Grenouille wurde nie geliebt. Beide werden physisch von ihrer Umgebung ausgegrenzt; bei Kafka ist das Tier-Werden der Auslöser, bei Süskind ist die Isolation der Naturzustand von Anfang an.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Rilke («Der Einsame»):</strong> Das lyrische Ich in «Der Einsame» ist «bei den ewig Einheimischen» und trotzdem fremd. Grenouille ist das prosaische Gegenstück: auch er ist unter Menschen, aber nie bei ihnen.</p>
       </div>
     </div>
   </div>
+</div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════
-       PANEL: JUGEND OHNE GOTT
-  ═══════════════════════════════════════════════ -->
-  <div id="jugend" class="panel">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Jugend ohne Gott</div>
-          <div class="sub">Ödön von Horváth · 1937</div>
+<!-- ══════════════════════════════════════════
+     DIE VERWANDLUNG
+══════════════════════════════════════════ -->
+<div id="verwandlung" class="panel">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Die Verwandlung</div>
+      <div class="sub">Franz Kafka · 1915</div>
+      <button class="autor-btn" onclick="openModal('kafka')">Autor & Entstehung</button>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-epik">Epik</span>
+      <span class="badge badge-u">Unterricht</span>
+    </div>
+  </div>
+  <div class="werk-body">
+    <div class="sub-nav">
+      <button class="active" onclick="showSub('v','fakten',this)">Fakten</button>
+      <button onclick="showSub('v','figuren',this)">Figuren</button>
+      <button onclick="showSub('v','inhalt',this)">Inhalt & Themen</button>
+      <button onclick="showSub('v','isolation',this)">Isolation</button>
+      <button onclick="showSub('v','text',this)">Textstelle & Interpretation</button>
+    </div>
+    <div id="v-fakten" class="sub-panel active">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="lbl">Werk-Fakten</div>
+          <div class="kv"><span class="k">Gattung</span><span class="v">Novelle / Erzählung</span></div>
+          <div class="kv"><span class="k">Epoche</span><span class="v">Expressionismus / Moderne</span></div>
+          <div class="kv"><span class="k">Setting</span><span class="v">Bürgerliche Wohnung, Prag</span></div>
+          <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Personaler Erzähler</span></div>
+          <div class="kv"><span class="k">Sprache</span><span class="v">Sachlich, nüchtern, bürokratisch</span></div>
+          <div class="kv"><span class="k">Dreiteilung</span><span class="v">3 Kapitel (Verwandlung / Anpassung / Tod)</span></div>
         </div>
-        <div class="badge-row">
-          <span class="badge badge-epik">Epik</span>
-          <span class="badge badge-u">Unterricht</span>
-        </div>
-      </div>
-      <div class="werk-body">
-        <div class="sub-nav">
-          <button class="active" onclick="showSub('j', 'fakten', this)">Fakten</button>
-          <button onclick="showSub('j', 'inhalt', this)">Inhalt & Themen</button>
-          <button onclick="showSub('j', 'isolation', this)">Isolation</button>
-          <button onclick="showSub('j', 'text', this)">Textstelle & Interpretation</button>
-        </div>
-        <div id="j-fakten" class="sub-panel active">
-          <div class="info-grid">
-            <div class="info-box">
-              <div class="lbl">Werk-Fakten</div>
-              <div class="kv"><span class="k">Gattung</span><span class="v">Zeitroman / Parabel</span></div>
-              <div class="kv"><span class="k">Epoche</span><span class="v">Exilliteratur / Neue Sachlichkeit</span></div>
-              <div class="kv"><span class="k">Setting</span><span class="v">NS-Deutschland, Zeltlager</span></div>
-              <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Ich-Erzähler (namenloser Lehrer)</span></div>
-              <div class="kv"><span class="k">Sprache</span><span class="v">Schlicht, direkt, lakonisch</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Autor</div>
-              <div class="prose">Ödön von Horváth (1901–1938), österreichisch-ungarischer Dramatiker und Romancier. Schrieb als Warner vor dem Nationalsozialismus im Exil. Starb tragisch jung (Ast in Paris). <strong>«Jugend ohne Gott»</strong> ist sein bedeutendstes Prosawerk – geschrieben nach dem Anschluss Österreichs als literarische Anklage gegen NS-Ideologie.</div>
-            </div>
-          </div>
-        </div>
-        <div id="j-inhalt" class="sub-panel">
-          <p class="prose">Ein namenloser Lehrer (bewusst «der Lehrer» = Typenfigur) sieht, wie die Jugend von NS-Ideologie vergiftet wird. Im Zeltlager geschieht ein Mord. Der Lehrer kämpft zwischen <strong>Feigheit und moralischem Gewissen</strong>. Er entscheidet sich letztlich für die Wahrheit und verliert alles.</p>
-          <br>
-          <p class="prose">Kernthemen: <strong>Moralischer Verfall, Mitläufertum, Verantwortung des Einzelnen im System, «Gottlosigkeit» als Metapher für den Verlust ethischer Werte.</strong></p>
-        </div>
-        <div id="j-isolation" class="sub-panel">
-          <p class="prose">Der Lehrer isoliert sich bewusst, indem er <strong>seiner Überzeugung folgt</strong>: Er schreibt «Neger sind auch Menschen» – ein kleiner, aber symbolisch riesiger Akt des Widerstands in einer gleichgeschalteten Gesellschaft. Diese moralische Isolation – wer denkt, wer Haltung zeigt, wird ausgeschlossen – ist das Kernthema.</p>
-          <div class="iso-tag">Moralische Isolation im totalitären System</div>
-        </div>
-        <div id="j-text" class="sub-panel">
-          <div class="textstelle-block">«Ich glaube, daß wir mit der Jugend von heute immer weniger gemeinsam haben werden. [...] Sie kennen keine Götter mehr. Denn sie kennen keinen Gott.»</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Der Lehrer diagnostiziert eine Generationenisolation – er und die Jugend leben in verschiedenen Wertewelten. «Keinen Gott» meint nicht religiösen Atheismus, sondern den Verlust von Humanismus und Mitgefühl. Die Parallelkonstruktion (Götter / Gott) verstärkt die rhetorische Wucht – von Plural zu Singular, von allgemein zu absolut. Die Ich-Perspektive bindet Leser:in ein: Wer ist «wir»?
-          </div>
+        <div class="info-box">
+          <div class="lbl">Literaturgeschichtliche Einordnung</div>
+          <p class="prose">Expressionismus: Verzerrung der Realität als Ausdruck innerer Zustände. Die Verwandlung ist auch ein Schlüsseltext der literarischen <strong>Moderne</strong>: Entfremdung, Identitätsverlust, das Absurde. Kafka gilt als Vater des Absurdismus und beeinflusste Camus, Beckett, Sartre massgeblich. «Kafkaesk» ist heute ein geläufiges Adjektiv.</p>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       PANEL: MARQUISE VON O.
-  ═══════════════════════════════════════════════ -->
-  <div id="marquise" class="panel">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Die Marquise von O…</div>
-          <div class="sub">Heinrich von Kleist · 1808 <span class="star-badge">⚑ Vor 1900</span></div>
-        </div>
-        <div class="badge-row">
-          <span class="badge badge-epik">Epik</span>
-          <span class="badge badge-p">Privatlektüre</span>
-        </div>
+    <div id="v-figuren" class="sub-panel">
+      <div class="figur-card">
+        <div class="figur-name">Gregor Samsa <span class="figur-role">Protagonist</span></div>
+        <div class="figur-desc">Reisender Vertreter, der seine verschuldete Familie allein ernährt. Nach der Verwandlung zum Ungeziefer verliert er seine Funktion und damit seinen Wert. Er behält zunächst sein menschliches Bewusstsein und leidet darunter, nicht mehr dazuzugehören. Verkörpert den durch Arbeit und Familie entfremdeten modernen Menschen.</div>
       </div>
-      <div class="werk-body">
-        <div class="sub-nav">
-          <button class="active" onclick="showSub('m', 'fakten', this)">Fakten</button>
-          <button onclick="showSub('m', 'inhalt', this)">Inhalt & Themen</button>
-          <button onclick="showSub('m', 'isolation', this)">Isolation</button>
-          <button onclick="showSub('m', 'text', this)">Textstelle & Interpretation</button>
-        </div>
-        <div id="m-fakten" class="sub-panel active">
-          <div class="info-grid">
-            <div class="info-box">
-              <div class="lbl">Werk-Fakten</div>
-              <div class="kv"><span class="k">Gattung</span><span class="v">Novelle</span></div>
-              <div class="kv"><span class="k">Epoche</span><span class="v">Weimarer Klassik / Romantik</span></div>
-              <div class="kv"><span class="k">Setting</span><span class="v">Norditalien, Kriegszeit</span></div>
-              <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Auktorialer Erzähler</span></div>
-              <div class="kv"><span class="k">Sprache</span><span class="v">Komplex, Einschübe, indirekte Rede</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Autor (vor 1900!)</div>
-              <div class="prose">Heinrich von Kleist (1777–1811), preussischer Offizier, Dramatiker, Novellendichter. Brücke zwischen Klassik und Romantik, gilt als Vorläufer der Moderne. Bekannt für seine <strong>hypotaktische Syntax</strong> und psychologische Tiefenschärfe. Starb durch Suizid. Sein Werk wurde erst posthum gewürdigt.</div>
-            </div>
-          </div>
-        </div>
-        <div id="m-inhalt" class="sub-panel">
-          <p class="prose">Die Marquise wird während einer Kriegsverwirrung bewusstlos und von einem russischen Offizier (Graf F.) vergewaltigt. Sie wird schwanger, ohne die Umstände zu kennen. Ihre Familie verstösst sie. Sie schaltet eine Zeitungsannonce, um den Vater zu finden. Am Ende heiratet sie den Grafen.</p>
-          <br>
-          <p class="prose">Kernthemen: <strong>Weibliche Selbstbestimmung, gesellschaftliche Moral vs. individuelle Wahrheit, Schein und Sein, Opfer und Täter, Patriarchat.</strong></p>
-        </div>
-        <div id="m-isolation" class="sub-panel">
-          <p class="prose">Die Marquise erlebt die radikalste Form der sozialen Isolation: <strong>Verstossung durch die eigene Familie</strong>, gesellschaftliche Ächtung – obwohl sie das Opfer ist. Ihre Isolation ist gesellschaftlich erzwungen, ein Produkt patriarchaler Moral, die das Opfer bestraft.</p>
-          <br>
-          <p class="prose">Besonders stark: Der Vater, der eigentlich Schutz bieten sollte, vollzieht die Isolation selbst. Kleist zeigt: Isolation ist kein Schicksal, sondern ein gesellschaftlicher Mechanismus zur Kontrolle.</p>
-          <div class="iso-tag">Erzwungene Isolation als gesellschaftliche Strafe (Opfer wird bestraft)</div>
-        </div>
-        <div id="m-text" class="sub-panel">
-          <div class="textstelle-block">«Die Marquise, von diesem Auftritt auf das Tiefste erschüttert, bat ihren Vater, ihr zu sagen, ob er sie aus seinem Hause stossen wolle [...].»</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Die direkte Frage der Marquise zeigt ihre würdevolle Haltung trotz vollständiger Ohnmacht. Sie versucht, durch direkte Kommunikation die Isolation zu durchbrechen – eine aktive Gegenwehr. «Vater» steht für patriarchale Gesellschaftsordnung. Das Verb «stossen» enthält physische Gewalt in einer abstrakt-sozialen Handlung. Kleists indirekte Rede verschleiert Verantwortung – wie auch die Gesellschaft Verantwortung verschleiert.
-          </div>
-        </div>
+      <div class="figur-card">
+        <div class="figur-name">Vater Samsa <span class="figur-role">Autoritätsfigur / Antagonist</span></div>
+        <div class="figur-desc">War vor Gregors Arbeit faul und passiv. Nach Gregors Verwandlung schöpft er neue Energie und Autorität. Wirft Äpfel nach Gregor und verletzt ihn tödlich. Symbolisiert die brutale, patriarchale Autorität, die sich des Schwachen entledigt, sobald er nutzlos wird.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Grete Samsa <span class="figur-role">Schwester / moralischer Verfall</span></div>
+        <div class="figur-desc">Zunächst Gregors einzige Fürsprecherin – sie füttert ihn und räumt sein Zimmer. Ihr Wandel zur härtesten Ablehnerin («Wir müssen es loswerden») ist der deutlichste Marker des moralischen Verfalls der Familie. Ihr Bogen vom Mitgefühl zur Kälte ist dramaturgisch das Herzstück.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Mutter Samsa <span class="figur-role">Passive Mittlerin</span></div>
+        <div class="figur-desc">Hin- und hergerissen zwischen Mutterliebe und Ekel. Sie ohnmächtig zu werden ist ihr häufigstes Reaktionsmuster – sie flüchtet in Hilflosigkeit. Repräsentiert jene, die sehen, was geschieht, aber nichts unternehmen.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Die Untermieter <span class="figur-role">Gesellschaftsspiegel</span></div>
+        <div class="figur-desc">Drei anonyme Untermieter, die die Familie ausnützen. Als sie Gregor sehen, kündigen sie sofort. Repräsentieren die gesellschaftliche Norm: Das Fremdartige, das «Ungeziefer» hat in der bürgerlichen Welt keinen Platz.</div>
+      </div>
+    </div>
+    <div id="v-inhalt" class="sub-panel">
+      <p class="prose">Gregor Samsa erwacht eines Morgens als <strong>«ungeheueres Ungeziefer»</strong>. Er versucht zunächst, seinen Alltag – besonders seine Pflicht als Ernährer – aufrechtzuerhalten. Die Familie reagiert mit Erschrecken, dann wachsendem Ekel. Grete pflegt ihn anfangs, wendet sich aber schliesslich ab. Gregor stirbt vereinsamt in seinem Zimmer. Die Familie fährt daraufhin ausgelassen in die Natur.</p>
+      <br>
+      <p class="prose">Kernthemen: <strong>Entfremdung · Funktionalisierung des Menschen · kapitalistische Ausbeutung · Familienstrukturen und ihre Kälte · Identitätsverlust durch Rollenzwang · das Absurde als Spiegel der Realität</strong></p>
+    </div>
+    <div id="v-isolation" class="sub-panel">
+      <p class="prose">Gregors Isolation war <strong>schon vor der Verwandlung</strong> vorhanden: Er lebte für die Arbeit, hatte keine eigenen Wünsche, war durch Schulden an seine Rolle gekettet. Die körperliche Verwandlung macht nur sichtbar, was psychologisch schon existierte – völlige Entfremdung vom eigenen Leben.</p>
+      <br>
+      <p class="prose">Sein Zimmer wird zur physischen Isolation: erst Rückzugsort, dann Gefängnis, schliesslich Grabkammer. Die Familie isoliert ihn schrittweise – zuerst indem sie die Zimmertür schliesst, dann indem sie ihn vergisst.</p>
+      <div class="iso-tag">Isolation durch Entfremdung & Funktionsverlust</div>
+      <div class="tipp-box">Parallele zu Rilkes «Der Panther»: Gregor sitzt hinter seinem «Gitter» (Zimmer, Körper), sein «grosser Wille» erlischt. Beide Figuren bewegen sich noch, aber die Bewegung hat kein Ziel mehr.</div>
+    </div>
+    <div id="v-text" class="sub-panel">
+      <div class="textstelle-block">«Als Gregor Samsa eines Morgens aus unruhigen Träumen erwachte, fand er sich in seinem Bett zu einem ungeheueren Ungeziefer verwandelt.»</div>
+      <div class="interp-box">
+        <div class="interp-label">Interpretation</div>
+        <p>Der berühmteste Einstiegssatz der deutschen Literatur verdichtet das gesamte Programm der Erzählung: Banales und Ungeheurliches treffen aufeinander. «Eines Morgens» ist ein alltäglicher, schlichter Tagesanfang. «Aus unruhigen Träumen» deutet schon auf eine gestörte Normalität hin – Gregor schläft nicht gut, ist kein gesunder, glücklicher Mensch. Dann, ohne Übergang, ohne Erklärung: «zu einem ungeheueren Ungeziefer verwandelt».</p>
+        <p style="margin-top:8px">Das Wort «Ungeziefer» ist entscheidend: Es benennt kein konkretes Tier. Kafka verweigert uns die Visualisierung. Was ein Ungeziefer ist, wissen wir kulturell – es ist etwas, das «nicht opferfähig» ist (Wörterbuch-Etymologie), etwas Schmutziges, Unwürdiges. Gregor wird nicht zu einem Wolf oder Löwen – er wird zu etwas Kleinem, Nutzlosem, Ekligem.</p>
+        <p style="margin-top:8px">Die sachliche Erzählhaltung ohne jeden Kommentar spiegelt die gesellschaftliche Gleichgültigkeit: Das Schreckliche wird als Faktum berichtet. Das ist Kafkas Technik – das Absurde im Ton des Alltäglichen.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Süskind:</strong> Auch Grenouille wird von Geburt an als «Abscheu» beschrieben. Beide Texte beginnen mit der sofortigen gesellschaftlichen Klassifizierung der Hauptfigur als «nicht dazugehörend».</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Rilke («Herbst»):</strong> «Wir alle fallen» – auch Gregor fällt, aus der menschlichen Gemeinschaft, aus seiner Rolle, aus dem Leben. Rilkes kosmische Metapher wird bei Kafka in den bürgerlichen Alltag übersetzt.</p>
       </div>
     </div>
   </div>
+</div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════
-       PANEL: DIE PHYSIKER
-  ═══════════════════════════════════════════════ -->
-  <div id="physiker" class="panel">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Die Physiker</div>
-          <div class="sub">Friedrich Dürrenmatt · 1962</div>
+<!-- ══════════════════════════════════════════
+     JUGEND OHNE GOTT
+══════════════════════════════════════════ -->
+<div id="jugend" class="panel">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Jugend ohne Gott</div>
+      <div class="sub">Ödön von Horváth · 1937</div>
+      <button class="autor-btn" onclick="openModal('horvath')">Autor & Entstehung</button>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-epik">Epik</span>
+      <span class="badge badge-u">Unterricht</span>
+    </div>
+  </div>
+  <div class="werk-body">
+    <div class="sub-nav">
+      <button class="active" onclick="showSub('j','fakten',this)">Fakten</button>
+      <button onclick="showSub('j','figuren',this)">Figuren</button>
+      <button onclick="showSub('j','inhalt',this)">Inhalt & Themen</button>
+      <button onclick="showSub('j','isolation',this)">Isolation</button>
+      <button onclick="showSub('j','text',this)">Textstelle & Interpretation</button>
+    </div>
+    <div id="j-fakten" class="sub-panel active">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="lbl">Werk-Fakten</div>
+          <div class="kv"><span class="k">Gattung</span><span class="v">Zeitroman / Parabel</span></div>
+          <div class="kv"><span class="k">Epoche</span><span class="v">Exilliteratur / Neue Sachlichkeit</span></div>
+          <div class="kv"><span class="k">Setting</span><span class="v">NS-Deutschland, Zeltlager</span></div>
+          <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Ich-Erzähler (namenloser Lehrer)</span></div>
+          <div class="kv"><span class="k">Sprache</span><span class="v">Schlicht, direkt, lakonisch</span></div>
+          <div class="kv"><span class="k">Figuren als Typen</span><span class="v">Bewusst namenlos (Typenfiguren)</span></div>
         </div>
-        <div class="badge-row">
-          <span class="badge badge-drama">Dramatik</span>
-          <span class="badge badge-p">Privatlektüre</span>
-        </div>
-      </div>
-      <div class="werk-body">
-        <div class="sub-nav">
-          <button class="active" onclick="showSub('ph', 'fakten', this)">Fakten</button>
-          <button onclick="showSub('ph', 'inhalt', this)">Inhalt & Themen</button>
-          <button onclick="showSub('ph', 'isolation', this)">Isolation</button>
-          <button onclick="showSub('ph', 'text', this)">Textstelle & Interpretation</button>
-        </div>
-        <div id="ph-fakten" class="sub-panel active">
-          <div class="info-grid">
-            <div class="info-box">
-              <div class="lbl">Werk-Fakten</div>
-              <div class="kv"><span class="k">Gattung</span><span class="v">Komödie / Groteske</span></div>
-              <div class="kv"><span class="k">Epoche</span><span class="v">Nachkriegsmoderne (CH)</span></div>
-              <div class="kv"><span class="k">Setting</span><span class="v">Psychiatrische Anstalt</span></div>
-              <div class="kv"><span class="k">Struktur</span><span class="v">2 Akte, klassische Einheiten</span></div>
-              <div class="kv"><span class="k">Sprache</span><span class="v">Präzise, paradox, ironisch</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Autor</div>
-              <div class="prose">Friedrich Dürrenmatt (1921–1990), Schweizer Dramatiker, einer der bedeutendsten deutschsprachigen Dramatiker des 20. Jh. Bekannt für das Grotesque, Paradoxe, das <strong>«Schlimmstmögliche»</strong>. Die Physiker entstand im Kalten Krieg als Reflexion über Wissenschaft und Verantwortung.</div>
-            </div>
-          </div>
-        </div>
-        <div id="ph-inhalt" class="sub-panel">
-          <p class="prose">Drei Physiker in einer psychiatrischen Anstalt: Möbius (genialer Forscher, versteckt sich als Wahnsinniger), Newton und Einstein (eigentlich Geheimagenten verschiedener Grossmächte). Alle spielen Verrückte, um Möbius' gefährliche Weltformel zu schützen. Die wahnsinnige Ärztin Dr. von Zahnd hat die Formel jedoch bereits gestohlen. Die Welt ist verloren.</p>
-          <br>
-          <p class="prose">Kernthemen: <strong>Wissenschaft und Verantwortung, Dilemma des Genies, Kontrollverlust, Paradox von Vernunft und Wahnsinn.</strong> Berühmtester Satz: «Was einmal gedacht wurde, kann nicht mehr zurückgenommen werden.»</p>
-        </div>
-        <div id="ph-isolation" class="sub-panel">
-          <p class="prose">Möbius' <strong>freiwillige Isolation</strong> in der Anstalt ist seine einzige Strategie, die Welt zu schützen. Er opfert Freiheit, Familie, Würde – um seine Erkenntnisse geheim zu halten. Isolierung als bewusste, rationale Entscheidung des Genies.</p>
-          <br>
-          <p class="prose"><strong>Paradox:</strong> Die Isolation schlägt fehl, weil die Welt von aussen eindringt (von Zahnd). Isolation als utopische, aber letztlich unmögliche Lösung – niemand kann sich vollständig abschotten.</p>
-          <div class="iso-tag">Selbstgewählte Isolation als Schutzstrategie – die scheitert</div>
-          <div class="tipp-box">Dürrenmatts 21 Punkte: «Was alle angeht, können nur alle lösen.» – Isolation ist damit per Definition keine Lösung gesellschaftlicher Probleme. Das ist Dürrenmatts Kernbotschaft.</div>
-        </div>
-        <div id="ph-text" class="sub-panel">
-          <div class="textstelle-block">«Wir sind in einer Anstalt. Also müssen wir verrückt denken.»</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Der Satz bricht den rationalen Diskurs auf paradoxe Weise auf. «Verrückt denken» ist hier eigentlich rationale Strategie – das Paradox ist das Stilmittel. Das Stück befragt: Wer ist in einer verrückten Welt wirklich vernünftig? Die Anstalt als Ort der Isolation repräsentiert die Gesellschaft, die Unbequemes aussondert – Genies, Andersdenkende, moralisch Unbequeme.
-          </div>
-          <div class="tipp-box">Vergleich mit Jugend ohne Gott: Auch der Lehrer muss «anders denken» als seine Umgebung. Beide Figuren sind durch ihren Geist isoliert, nicht durch äussere Umstände.</div>
+        <div class="info-box">
+          <div class="lbl">Literaturgeschichtliche Einordnung</div>
+          <p class="prose">Exilliteratur: geschrieben ausserhalb Deutschlands als Kritik am NS-Regime. Neue Sachlichkeit: nüchterne, direkte Sprache, Fokus auf gesellschaftliche Realität statt Innenwelt. <strong>Parabelcharakter</strong>: Figuren repräsentieren Typen (der Lehrer = jeder Mitläufer; die Jugend = die manipulierte Generation).</p>
         </div>
       </div>
     </div>
+    <div id="j-figuren" class="sub-panel">
+      <div class="figur-card">
+        <div class="figur-name">Der Lehrer (ich) <span class="figur-role">Protagonist / Ich-Erzähler</span></div>
+        <div class="figur-desc">Bewusst namenlos – er ist ein «Jedermann», ein Typus des deutschen Intellektuellen im Nationalsozialismus. Zunächst Mitläufer, der seinen Schülern die NS-Ideologie beibringt ohne zu widersprechen. Nach dem Erlebnis «Neger sind auch Menschen» beginnt seine moralische Reifung. Er kämpft zwischen Feigheit und Gewissen und wählt letztlich die Wahrheit – zum Preis seiner gesellschaftlichen Existenz.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">N (der Knabe) <span class="figur-role">Opfer</span></div>
+        <div class="figur-desc">Stiller, ausgestossener Schüler, der ein Tagebuch führt. Er wird ermordet. Sein Tagebuch enthält die Wahrheit über die Vorgänge im Lager. Steht für den Einzelnen, der in einem totalitären System keinen Platz hat – und dafür bezahlt.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Z (der Täter) <span class="figur-role">Mörder / Typus der verführten Jugend</span></div>
+        <div class="figur-desc">Schüler, der N tötet, um das Tagebuch zu stehlen und seine Schuld zu verdecken. Repräsentiert die durch NS-Ideologie korrumpierte Jugend: kalt, berechnend, ohne moralisches Gewissen. Nicht von Natur aus böse – sondern geformt durch das System.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Eva <span class="figur-role">Mädchen / moralischer Kontrapunkt</span></div>
+        <div class="figur-desc">Junges Mädchen, das dem Lehrer begegnet und ihn in seiner moralischen Entwicklung begleitet. Verkörpert eine unverstellte, noch nicht ideologisierte Menschlichkeit. Sie ist der Beweis, dass die Jugend nicht vollständig verloren ist.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Der Direktor / die Eltern <span class="figur-role">Das System</span></div>
+        <div class="figur-desc">Repräsentieren das konforme Establishment, das den Lehrer unter Druck setzt, sich anzupassen. Sie interessieren sich nicht für Wahrheit, sondern für Ordnung und Karriere. Ihr kollektiver Druck ist die eigentliche Bedrohung für den Lehrer.</div>
+      </div>
+    </div>
+    <div id="j-inhalt" class="sub-panel">
+      <p class="prose">Ein namenloser Lehrer in NS-Deutschland sieht, wie seine Schüler von der Ideologie vergiftet werden. Als er einem Aufsatz eines Schülers kommentiert, dass «Neger auch Menschen sind», bricht ein Sturm los. Im Zeltlager wird der stille Schüler N ermordet. Der Lehrer muss sich entscheiden: schweigen oder Zeugnis ablegen.</p>
+      <br>
+      <p class="prose">Kernthemen: <strong>Moralischer Verfall und Mitläufertum · Verantwortung des Einzelnen im totalitären System · «Gottlosigkeit» als Verlust ethischer Grundwerte · Mut als Akt der Isolation · Jugend als Opfer und Täter zugleich</strong></p>
+    </div>
+    <div id="j-isolation" class="sub-panel">
+      <p class="prose">Der Lehrer isoliert sich durch <strong>moralische Integrität</strong> in einer gleichgeschalteten Gesellschaft. «Neger sind auch Menschen» – ein banaler Satz, der zu einem revolutionären Akt wird, weil die Umgebung jede Menschlichkeit verloren hat.</p>
+      <br>
+      <p class="prose">Der Lehrer ist der einzige, der noch «Gott kennt» – d.h. der noch an Humanismus und Mitgefühl glaubt. Diese moralische Andersartigkeit macht ihn zum Aussenseiter. Isolation als Preis der Integrität.</p>
+      <div class="iso-tag">Moralische Isolation im totalitären System</div>
+      <div class="tipp-box">Verbindung zu Dürrenmatts Möbius: Beide Figuren isolieren sich aus moralischen Gründen – der Lehrer wählt Wahrheit statt Sicherheit, Möbius wählt Wahnsinn statt Freiheit. Beide scheitern, aber ihr Scheitern hat Würde.</div>
+    </div>
+    <div id="j-text" class="sub-panel">
+      <div class="textstelle-block">«Ich glaube, daß wir mit der Jugend von heute immer weniger gemeinsam haben werden. [...] Sie kennen keine Götter mehr. Denn sie kennen keinen Gott.»</div>
+      <div class="interp-box">
+        <div class="interp-label">Interpretation</div>
+        <p>Der Lehrer diagnostiziert eine fundamentale Generationenisolation: Er und die Jugend leben in inkompatiblen Wertewelten. «Keinen Gott kennen» meint nicht religiösen Atheismus – sondern den Verlust jedes transzendenten, übergeordneten Wertsystems, das über das Individuum und die Ideologie hinausgeht. «Gott» steht hier für Humanismus, Mitgefühl, Menschenwürde.</p>
+        <p style="margin-top:8px">Die rhetorische Figur des Parallelismus («keine Götter» / «keinen Gott») ist präzise gewählt: erst der Plural (Werte, Ideale), dann der Singular (die letzte Instanz). Von aussen nach innen, von abstrakt zu absolut – die Aussage verdichtet sich.</p>
+        <p style="margin-top:8px">Das Ich-Erzähler-Format ist wichtig: Der Lehrer reflektiert öffentlich, bindet Leser:in ein. «Wir» – wer ist «wir»? Die Generation der Erwachsenen, die noch eine Vorkriegs-Moral kennen? Die Aussage wird zur Anklage an alle, die zusehen.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Rilke («Ich fürchte mich vor der Menschen Wort»):</strong> Auch Rilkes lyrisches Ich fürchtet, was Menschen mit Sprache und Werten anrichten. Beide ziehen sich zurück – der Lehrer zunächst in Schweigen, Rilkes Ich in die Stille der Dinge.</p>
+        <p style="margin-top:8px"><strong>Historischer Kontext:</strong> Der Roman erscheint 1937 im Exil. Horváth schreibt ihn als Warnung – nicht als historische Analyse, sondern als akute Diagnose. Das macht den Ton so beunruhigend direkt.</p>
+      </div>
+    </div>
   </div>
+</div>
+</div>
 
-  <!-- ═══════════════════════════════════════════════
-       PANEL: RILKE
-  ═══════════════════════════════════════════════ -->
-  <div id="rilke" class="panel">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Rainer Maria Rilke – Lyrik</div>
-          <div class="sub">10 Gedichte · ca. 1897–1908</div>
+<!-- ══════════════════════════════════════════
+     MARQUISE VON O.
+══════════════════════════════════════════ -->
+<div id="marquise" class="panel">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Die Marquise von O…</div>
+      <div class="sub">Heinrich von Kleist · 1808 <span class="star-badge">⚑ Vor 1900</span></div>
+      <button class="autor-btn" onclick="openModal('kleist')">Autor & Entstehung</button>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-epik">Epik</span>
+      <span class="badge badge-p">Privatlektüre</span>
+    </div>
+  </div>
+  <div class="werk-body">
+    <div class="sub-nav">
+      <button class="active" onclick="showSub('m','fakten',this)">Fakten</button>
+      <button onclick="showSub('m','figuren',this)">Figuren</button>
+      <button onclick="showSub('m','inhalt',this)">Inhalt & Themen</button>
+      <button onclick="showSub('m','isolation',this)">Isolation</button>
+      <button onclick="showSub('m','text',this)">Textstelle & Interpretation</button>
+    </div>
+    <div id="m-fakten" class="sub-panel active">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="lbl">Werk-Fakten</div>
+          <div class="kv"><span class="k">Gattung</span><span class="v">Novelle</span></div>
+          <div class="kv"><span class="k">Epoche</span><span class="v">Weimarer Klassik / Romantik</span></div>
+          <div class="kv"><span class="k">Setting</span><span class="v">Norditalien, Kriegszeit</span></div>
+          <div class="kv"><span class="k">Erzählperspektive</span><span class="v">Auktorialer Erzähler (distanziert)</span></div>
+          <div class="kv"><span class="k">Sprache</span><span class="v">Hypotaktisch, indirekte Rede</span></div>
+          <div class="kv"><span class="k">Publikation</span><span class="v">Erstmals in Phöbus, 1808</span></div>
         </div>
-        <div class="badge-row">
-          <span class="badge badge-lyrik">Lyrik</span>
-          <span class="badge badge-p">Privatlektüre</span>
+        <div class="info-box">
+          <div class="lbl">Literaturgeschichtliche Einordnung</div>
+          <p class="prose">Kleist steht zwischen Klassik (Vernunft, Ordnung) und Romantik (Gefühl, Irrationalität). Er ist <strong>Vorläufer der Moderne</strong>: psychologische Tiefenschärfe, Ambivalenz, keine moralische Eindeutigkeit. Die Novelle ist bekannt für das «Unerhörte» als Gattungsmerkmal – eine skandalöse Begebenheit, die gesellschaftliche Normen hinterfragt.</p>
         </div>
       </div>
-      <div class="werk-body" style="padding: 1.5rem;">
-        <div style="background: var(--bg3); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin-bottom: 1.25rem; border: 1px solid var(--border);">
-          <div style="font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text3); margin-bottom: 6px;">Autor & Einordnung</div>
-          <p class="prose">Rainer Maria Rilke (1875–1926), Prager Dichter, einer der bedeutendsten Lyriker der deutschen Sprache. Prägend: Einfluss durch Rodin (Paris), Entwicklung des <strong>Dinggedichts</strong> – Kunstwerke / Tiere / Gegenstände als Spiegel menschlicher Existenz. Symbolismus: Dinge verweisen auf das Unsagbare. Rilke litt selbst an existenzieller Einsamkeit – sein Werk ist durchdrungen vom Isolationsthema.</p>
-        </div>
+    </div>
+    <div id="m-figuren" class="sub-panel">
+      <div class="figur-card">
+        <div class="figur-name">Die Marquise von O. <span class="figur-role">Protagonistin</span></div>
+        <div class="figur-desc">Verwitwete Adlige, Mutter mehrerer Kinder. Würdevoll, standfest, selbstbestimmt. Sie weiss nicht, wer ihr Kind gezeugt hat, und weigert sich, eine Lüge zu akzeptieren. Ihr Charakter besteht im Widerstand gegen gesellschaftlichen Druck. Die Schalte der Zeitungsannonce ist ein mutiger, öffentlicher Akt der Selbstbehauptung.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Graf F. <span class="figur-role">Täter / Werber</span></div>
+        <div class="figur-desc">Russischer Offizier, der die Marquise rettet – und vergewaltigt, als sie bewusstlos ist. Danach umwirbt er sie intensiv und heiratet sie schliesslich. Seine Figur ist moralisch hochgradig ambivalent: Retter und Täter in einer Person. Kleist gibt ihm keine eindeutige Verurteilung – was bis heute umstritten ist.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Der Vater (Kommandant) <span class="figur-role">Patriarchalische Autorität</span></div>
+        <div class="figur-desc">Verstösst die Marquise, als er von der Schwangerschaft erfährt – ohne ihr zu glauben. Repräsentiert patriarchale Moral: Ehre ist wichtiger als Wahrheit, Schein wichtiger als Sein. Seine Wiederzulassung der Tochter nach ihrer Wiederehre ist ebenso ambivalent.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Die Mutter <span class="figur-role">Vermittlerin</span></div>
+        <div class="figur-desc">Nimmt die Tochter nach dem Verstoss des Vaters auf. Klüger und empathischer als der Vater. Versucht, zwischen den Welten zu vermitteln – ist aber letztlich auch gefangen in gesellschaftlichen Strukturen.</div>
+      </div>
+    </div>
+    <div id="m-inhalt" class="sub-panel">
+      <p class="prose">Die Marquise wird während einer Kriegsverwirrung von russischen Truppen bedroht und von Graf F. gerettet. Als sie bewusstlos ist, vergewaltigt er sie. Sie erwacht unwissend und wird schwanger. Ihre Familie verstösst sie. Sie schaltet eine Zeitungsannonce: «Wer sich als Vater des Kindes bekennt, solle erscheinen.» Graf F. erscheint. Sie heiraten – zunächst gegen ihren Willen, dann in einer zweiten, echten Heirat.</p>
+      <br>
+      <p class="prose">Kernthemen: <strong>Weibliche Selbstbestimmung · gesellschaftliche Moral vs. individuelle Wahrheit · Schein und Sein · patriarchale Kontrolle · das Opfer als gesellschaftlich Schuldige · Ambivalenz von Täter und Retter</strong></p>
+    </div>
+    <div id="m-isolation" class="sub-panel">
+      <p class="prose">Die Marquise erlebt die radikalste Form der sozialen Isolation: <strong>Verstossung durch die eigene Familie</strong>, obwohl sie das Opfer ist. Die Gesellschaft bestraft das Opfer – weil es die Norm stört, nicht weil es falsch gehandelt hat.</p>
+      <br>
+      <p class="prose">Besonders bitter: Der Vater vollzieht die Isolation selbst. Die Familie, die schützen sollte, wird zum Vollstrecker gesellschaftlicher Ächtung. Die Marquise ist buchstäblich allein – ohne Mann, ohne Familie, mit einem Geheimnis, das sie selbst nicht lösen kann.</p>
+      <div class="iso-tag">Erzwungene Isolation als gesellschaftliche Strafe (Opfer wird bestraft)</div>
+      <div class="tipp-box">Verbindung zu «Herbsttag» (Rilke): «Wer jetzt allein ist, wird es lange bleiben.» Die Marquise befindet sich an einem solchen Punkt – nach dem Verstoss scheint Isolation das unwiderrufliche Schicksal. Die Zeitungsannonce ist ihr mutiger Gegenzug.</div>
+    </div>
+    <div id="m-text" class="sub-panel">
+      <div class="textstelle-block">«Die Marquise, von diesem Auftritt auf das Tiefste erschüttert, bat ihren Vater, ihr zu sagen, ob er sie aus seinem Hause stossen wolle [...].»</div>
+      <div class="interp-box">
+        <div class="interp-label">Interpretation</div>
+        <p>Die direkte Frage der Marquise zeigt ihre Würde im Angesicht totaler Ohnmacht. Anstatt zu flehen oder zu schweigen, <strong>fordert sie Klarheit</strong>. Sie versucht, durch direkte Kommunikation die drohende Isolation abzuwenden – eine aktive, rationale Gegenwehr.</p>
+        <p style="margin-top:8px">«Vater» trägt hier doppelte Bedeutung: der biologische Vater und der «Vater» als Repräsentant patriarchaler Ordnung. Das Verb «stossen» ist bemerkenswert: Es enthält eine körperliche Gewalt in einem eigentlich abstrakten sozialen Akt. Man wird nicht «entlassen» oder «weggeschickt» – man wird «gestossen». Die Sprache macht die Brutalität sichtbar.</p>
+        <p style="margin-top:8px">Kleists Stil der <strong>indirekten Rede</strong> – fast die gesamte Novelle ist in indirekter Rede gehalten – verschleiert Verantwortung. «Sie bat ihren Vater, ihr zu sagen» – nicht: «Sie fragte ihren Vater direkt». Die Grammatik vermittelt Distanz und Unsicherheit: Wer ist verantwortlich? Die indirekte Rede ist das sprachliche Äquivalent zur gesellschaftlichen Verantwortungslosigkeit.</p>
+        <p style="margin-top:8px"><strong>Historischer Kontext:</strong> 1808 war die öffentliche Diskussion weiblicher Erfahrungen von sexueller Gewalt undenkbar. Kleist wählt die Novelle – eine relativ neue, bürgerliche Gattung – um eine gesellschaftliche Tabuzone zu betreten. Der Skandal war beabsichtigt.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Dürrenmatt:</strong> Beide Texte zeigen Figuren in ausweglosen Situationen, die von aussen konstruiert wurden. Möbius sitzt in der Anstalt, die Marquise im Haus des Vaters – beide haben keine «legale» Handlungsoption. Ihre Würde zeigt sich gerade in dieser Ausweglosigkeit.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-        <div class="rilke-nav">
-          <button class="active" onclick="showRilke('r-panther', this)">Der Panther ⭐</button>
-          <button onclick="showRilke('r-karussell', this)">Das Karussell</button>
-          <button onclick="showRilke('r-liebes', this)">Liebes-Lied</button>
-          <button onclick="showRilke('r-flamingos', this)">Die Flamingos</button>
-          <button onclick="showRilke('r-fuerchte', this)">Ich fürchte mich…</button>
-          <button onclick="showRilke('r-herbsttag', this)">Herbsttag ⭐</button>
-          <button onclick="showRilke('r-herbst', this)">Herbst</button>
-          <button onclick="showRilke('r-schauende', this)">Der Schauende</button>
-          <button onclick="showRilke('r-einsame', this)">Der Einsame</button>
-          <button onclick="showRilke('r-torso', this)">Archaischer Torso ⭐</button>
-          <button onclick="showRilke('r-alle', this)">Alle im Vergleich</button>
+<!-- ══════════════════════════════════════════
+     DIE PHYSIKER
+══════════════════════════════════════════ -->
+<div id="physiker" class="panel">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Die Physiker</div>
+      <div class="sub">Friedrich Dürrenmatt · 1962</div>
+      <button class="autor-btn" onclick="openModal('durrenmatt')">Autor & Entstehung</button>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-drama">Dramatik</span>
+      <span class="badge badge-p">Privatlektüre</span>
+    </div>
+  </div>
+  <div class="werk-body">
+    <div class="sub-nav">
+      <button class="active" onclick="showSub('ph','fakten',this)">Fakten</button>
+      <button onclick="showSub('ph','figuren',this)">Figuren</button>
+      <button onclick="showSub('ph','inhalt',this)">Inhalt & Themen</button>
+      <button onclick="showSub('ph','isolation',this)">Isolation</button>
+      <button onclick="showSub('ph','text',this)">Textstelle & Interpretation</button>
+    </div>
+    <div id="ph-fakten" class="sub-panel active">
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="lbl">Werk-Fakten</div>
+          <div class="kv"><span class="k">Gattung</span><span class="v">Komödie / Groteske</span></div>
+          <div class="kv"><span class="k">Epoche</span><span class="v">Nachkriegsmoderne (CH)</span></div>
+          <div class="kv"><span class="k">Setting</span><span class="v">Psychiatrische Anstalt</span></div>
+          <div class="kv"><span class="k">Struktur</span><span class="v">2 Akte, klassische Einheiten</span></div>
+          <div class="kv"><span class="k">Sprache</span><span class="v">Präzise, paradox, ironisch</span></div>
+          <div class="kv"><span class="k">Uraufführung</span><span class="v">Schauspielhaus Zürich, 1962</span></div>
         </div>
-
-        <!-- Panther -->
-        <div id="r-panther" class="panel active">
-          <div class="info-grid" style="margin-bottom:1rem">
-            <div class="info-box">
-              <div class="lbl">Form</div>
-              <div class="kv"><span class="k">Struktur</span><span class="v">3 Terzette (sonett-nah)</span></div>
-              <div class="kv"><span class="k">Metrum</span><span class="v">Jambischer Fünfheber</span></div>
-              <div class="kv"><span class="k">Reim</span><span class="v">aba / cdc / efe</span></div>
-              <div class="kv"><span class="k">Entstehung</span><span class="v">Jardin des Plantes, Paris</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Stilmittel</div>
-              <div class="kv"><span class="k">Hyperbel</span><span class="v">«tausend Stäbe»</span></div>
-              <div class="kv"><span class="k">Metapher</span><span class="v">«Vorhang der Pupille»</span></div>
-              <div class="kv"><span class="k">Alliteration</span><span class="v">weich / Weg / Wille</span></div>
-              <div class="kv"><span class="k">Enjambement</span><span class="v">Kreisbewegung formal</span></div>
-            </div>
-          </div>
-          <p class="prose" style="margin-bottom:0.75rem">Dinggedicht: Der gefangene Panther als Metapher für das isolierte, in seiner Entfaltung gehinderte Subjekt. Blick «der nichts mehr hält» = Verlust der Wahrnehmungsfähigkeit durch Isolation. «Betäubt ein grosser Wille» = Kraft vorhanden, aber durch Gitter nutzlos. Strophe 3: Hoffnungsfunken erlischt sofort.</p>
-          <div class="textstelle-block">Ihm ist, als ob es tausend Stäbe gäbe
-und hinter tausend Stäben keine Welt.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Hyperbel steigert Eingeschlossensein ins Unermessliche. «Keine Welt» dahinter – Isolation zerstört nicht nur Freiheit, sondern Realität selbst. Vergleich zu Grenouille (Parfum): beide existieren ohne echten Zugang zur menschlichen Gemeinschaft, beide besitzen eine überwältigende Fähigkeit, die durch ihre Isolation nutzlos oder destruktiv wird.
-          </div>
-          <div class="iso-tag">Isolation durch Gefangenschaft → Kraft wird nutzlos</div>
+        <div class="info-box">
+          <div class="lbl">Literaturgeschichtliche Einordnung</div>
+          <p class="prose">Dürrenmatt schreibt im Stil des <strong>grotesken Theaters</strong>: das Schlimmstmögliche als Komödie. Beeinflusst von Brecht (episches Theater), aber ohne dessen Didaktismus. Kalter Krieg als Kontext: Atombombe, Geheimdienste, die Frage nach der Verantwortung des Wissenschaftlers. Die «21 Punkte» sind dramaturgische Reflexion, die zum Text gehört.</p>
         </div>
+      </div>
+    </div>
+    <div id="ph-figuren" class="sub-panel">
+      <div class="figur-card">
+        <div class="figur-name">Johann Wilhelm Möbius <span class="figur-role">Protagonist</span></div>
+        <div class="figur-desc">Genialer Physiker, der eine Weltformel entwickelt hat, die die Menschheit vernichten könnte. Er simuliert Wahnsinn (er sieht König Salomon), um in der Anstalt zu bleiben und seine Erkenntnisse zu begraben. Opfert Familie, Freiheit und Würde für die Sicherheit der Welt. Sein Plan scheitert, weil er die Machgier von Dr. von Zahnd unterschätzt.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Herbert Georg Beutler / Newton <span class="figur-role">Geheimagent West</span></div>
+        <div class="figur-desc">Gibt vor, Newton zu sein. Ist in Wirklichkeit ein westlicher Geheimagent, der Möbius' Formeln für den Westen sichern will. Intelligent, berechnend, charmant. Tötet seine Krankenschwester. Repräsentiert den Westen im Kalten Krieg.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Ernst Heinrich Ernesti / Einstein <span class="figur-role">Geheimagent Ost</span></div>
+        <div class="figur-desc">Gibt vor, Einstein zu sein. Ist ein östlicher Geheimagent. Spiegelfigur zu Newton – gleiche Funktion, andere Seite. Zeigt: im Kalten Krieg sind beide Seiten gleich skrupellos.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Dr. Mathilde von Zahnd <span class="figur-role">Antagonistin / wirklich Verrückte</span></div>
+        <div class="figur-desc">Psychiaterin, die das Sanatorium leitet. Scheint die einzig «Vernünftige» – ist aber die eigentlich Wahnsinnige. Sie hat Möbius' Formeln kopiert und plant Weltherrschaft. Dürrenmatts bittere Pointe: die Anstaltsleiterin ist verrückter als alle Insassen.</div>
+      </div>
+      <div class="figur-card">
+        <div class="figur-name">Monika Stettler <span class="figur-role">Krankenschwester / Opfer</span></div>
+        <div class="figur-desc">Liebt Möbius aufrichtig und will mit ihm fliehen – was seinen Plan gefährdet. Möbius muss sie töten, um in der Anstalt zu bleiben. Ihr Tod ist das tragischste Moment: Möbius tötet aus Liebe zur Menschheit, eine Person, die ihn liebt.</div>
+      </div>
+    </div>
+    <div id="ph-inhalt" class="sub-panel">
+      <p class="prose">Drei Physiker in einer psychiatrischen Anstalt: Möbius versteckt sich als Wahnsinniger, Newton und Einstein sind Geheimagenten. Alle spielen Verrückte. Im zweiten Akt enthüllt sich: Dr. von Zahnd ist die einzig wirklich Wahnsinnige und hat Möbius' Formeln gestohlen. Die Welt ist verloren.</p>
+      <br>
+      <p class="prose">Kernthemen: <strong>Wissenschaft und Verantwortung · Dilemma des Genies · Kontrollverlust über eigene Erkenntnisse · Paradox von Vernunft und Wahnsinn · «Was einmal gedacht wurde, kann nicht mehr zurückgenommen werden»</strong></p>
+    </div>
+    <div id="ph-isolation" class="sub-panel">
+      <p class="prose">Möbius' freiwillige Isolation ist das Kernparadox des Stücks: Er <strong>wählt Gefangenschaft als Freiheitsakt</strong>. Nur in der Anstalt glaubt er, die Welt vor sich selbst schützen zu können. Isolation als bewusste, rationale, opferbereite Entscheidung.</p>
+      <br>
+      <p class="prose"><strong>Das Scheitern:</strong> Isolation schützt nicht vor der Welt – die Welt dringt ein (von Zahnd). Dürrenmatt formuliert: «Was alle angeht, können nur alle lösen.» Der Rückzug des Einzelnen, sei er noch so edel motiviert, ist keine Lösung für gesellschaftliche Probleme.</p>
+      <div class="iso-tag">Selbstgewählte Isolation als Schutzstrategie – die zwangsläufig scheitert</div>
+      <div class="tipp-box">Vergleich mit Rilkes «Flamingos»: Beide Möbius und die Flamingos ziehen sich in eine eigene Welt zurück («ins Imaginäre»). Für die Flamingos funktioniert der Rückzug als ästhetische Autarkie. Für Möbius scheitert er – weil er nicht in einer Welt ohne Konsequenzen lebt.</div>
+    </div>
+    <div id="ph-text" class="sub-panel">
+      <div class="textstelle-block">«Was einmal gedacht wurde, kann nicht mehr zurückgenommen werden.»</div>
+      <div class="interp-box">
+        <div class="interp-label">Interpretation</div>
+        <p>Dieser Satz – aus Möbius' grosser Rede – ist die philosophische Kernaussage des ganzen Stücks. Er formuliert das <strong>Dilemma des wissenschaftlichen Fortschritts</strong>: Erkenntnis ist irreversibel. Man kann eine Bombe bauen und dann entscheiden, sie nicht zu zünden – aber das Wissen um den Bau lässt sich nicht löschen.</p>
+        <p style="margin-top:8px">Möbius glaubt, durch Isolation das Wissen «einschliessen» zu können. Der Satz widerlegt diese Hoffnung im Voraus. Er ist tragisch selbstbezüglich: Möbius denkt diesen Gedanken, also existiert er – und kann nicht zurückgenommen werden.</p>
+        <p style="margin-top:8px">Sprachlich: kurz, aphoristisch, ohne Subjekt am Ende. «Kann nicht zurückgenommen werden» – Passiv ohne Agens: wer könnte es zurücknehmen? Niemand. Das Passiv ist die sprachliche Form der Hoffnungslosigkeit.</p>
+        <p style="margin-top:8px"><strong>Historischer Kontext:</strong> 1962, Kuba-Krise, Kalter Krieg. Dürrenmatt schreibt in dem Jahr, in dem die Menschheit dem Atomkrieg am nächsten stand. Der Satz ist keine abstrakte Philosophie – er ist eine existenzielle Warnung.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Süskind:</strong> Auch Grenouilles Parfum-Formel – einmal geschaffen – lässt sich nicht rückgängig machen. Die manipulierende Wirkung der Schönheit, einmal freigesetzt, kann nicht kontrolliert werden. Beide Werke handeln vom Verlust der Kontrolle über die eigene Schöpfung.</p>
+        <p style="margin-top:8px"><strong>Verbindung zu Horváth:</strong> Auch der Lehrer kann seine moralische Erkenntnis nicht zurücknehmen. «Neger sind auch Menschen» – einmal geschrieben, kann es nicht ungeschehen gemacht werden. Das Denken selbst erzwingt Konsequenzen.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
-        <!-- Karussell -->
-        <div id="r-karussell" class="panel">
-          <div class="info-grid" style="margin-bottom:1rem">
-            <div class="info-box">
-              <div class="lbl">Form</div>
-              <div class="kv"><span class="k">Struktur</span><span class="v">Freie Strophen, Prosa-Lyrik</span></div>
-              <div class="kv"><span class="k">Refrain</span><span class="v">«weißer Elefant» – 3×</span></div>
-              <div class="kv"><span class="k">Entstehung</span><span class="v">Jardin du Luxembourg, Paris</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Stilmittel</div>
-              <div class="kv"><span class="k">Refrain</span><span class="v">Kreisbewegung formal abgebildet</span></div>
-              <div class="kv"><span class="k">Farben</span><span class="v">Rot, Grün, Grau = Flüchtigkeit</span></div>
-              <div class="kv"><span class="k">Paradox</span><span class="v">Bewegung ohne Ziel</span></div>
-            </div>
-          </div>
-          <div class="textstelle-block">Und das geht hin und eilt sich, dass es endet,
-und kreist und dreht sich nur und hat kein Ziel.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Paradox: Eile ohne Ziel. Kreisbewegung = Isolation in der Routine – man bewegt sich, kommt aber nicht heraus. Kinder schauen «irgendwohin, herüber» – aus der Welt des Karussells hinaus, ohne wirklich anzukommen. Die Farbblitze zeigen, wie Identität in Bewegung zerfällt.
-          </div>
-          <div class="iso-tag">Isolation in der Kreisbewegung – Bewegung ohne Ankommen</div>
+<!-- ══════════════════════════════════════════
+     RILKE
+══════════════════════════════════════════ -->
+<div id="rilke" class="panel">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Rainer Maria Rilke – Lyrik</div>
+      <div class="sub">10 Gedichte · ca. 1897–1908</div>
+      <button class="autor-btn" onclick="openModal('rilke')">Autor & Entstehung</button>
+    </div>
+    <div class="badge-row">
+      <span class="badge badge-lyrik">Lyrik</span>
+      <span class="badge badge-p">Privatlektüre</span>
+    </div>
+  </div>
+  <div class="werk-body" style="padding:1.5rem">
+    <div class="rilke-nav">
+      <button class="active" onclick="showRilke('r-panther',this)">Der Panther ⭐</button>
+      <button onclick="showRilke('r-karussell',this)">Das Karussell</button>
+      <button onclick="showRilke('r-liebes',this)">Liebes-Lied</button>
+      <button onclick="showRilke('r-flamingos',this)">Die Flamingos</button>
+      <button onclick="showRilke('r-fuerchte',this)">Ich fürchte mich…</button>
+      <button onclick="showRilke('r-herbsttag',this)">Herbsttag ⭐</button>
+      <button onclick="showRilke('r-herbst',this)">Herbst</button>
+      <button onclick="showRilke('r-schauende',this)">Der Schauende</button>
+      <button onclick="showRilke('r-einsame',this)">Der Einsame</button>
+      <button onclick="showRilke('r-torso',this)">Archaischer Torso ⭐</button>
+      <button onclick="showRilke('r-alle',this)">Alle im Vergleich</button>
+    </div>
+
+    <!-- PANTHER -->
+    <div id="r-panther" class="panel active">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Neue Gedichte, 1907</div>
+          <pre>Sein Blick ist vom Vorübergehn der Stäbe
+so müd geworden, daß er nichts mehr hält.
+<span class="hl">Ihm ist, als ob es tausend Stäbe gäbe
+und hinter tausend Stäben keine Welt.</span>
+
+Der weiche Gang geschmeidig starker Schritte,
+<span class="hl">der sich im allerkleinsten Kreise dreht,</span>
+ist wie ein Tanz von Kraft um eine Mitte,
+in der betäubt ein großer Wille steht.
+
+Nur manchmal schiebt der Vorhang der Pupille
+sich lautlos auf –. <span class="hl">Dann geht ein Bild hinein,</span>
+geht durch der Glieder angespannte Stille –
+<span class="hl">und hört im Herzen auf zu sein.</span></pre>
         </div>
-
-        <!-- Liebes-Lied -->
-        <div id="r-liebes" class="panel">
-          <div class="textstelle-block">Wie soll ich meine Seele halten, dass
-sie nicht an deine rührt?</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Die Eröffnungsfrage ist ein Hilferuf nach Isolation – aber im Liebesgedicht. Paradox: das lyrische Ich sehnt sich nach Abstand, obwohl (weil?) es liebt. Die Musik-Metaphorik (Bogenstrich, Saiten, Geige) zeigt: Isolation ist unmöglich, wenn man liebt. «Welcher Geiger hat uns in der Hand?» = Kontrollverlust, Fremdsteuerung.
-          </div>
-          <div class="iso-tag">Isolation als Wunsch in der Liebe – paradox und unmöglich</div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>3 Terzette, jambischer Fünfheber, Reimschema aba/cdc/efe. Die Form ist fast sonetthaft – kontrolliert, gebunden – und spiegelt damit die Gefangenschaft des Panthers. Das Gedicht «hält» sich selbst gefangen.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Ein Panther im Zoo (Jardin des Plantes, Paris) schreitet auf und ab. Sein Blick ist «müd» – er sieht nichts mehr. Die Kraft ist noch vorhanden («großer Wille»), aber «betäubt». In Strophe 3: Ein Bild dringt kurz durch die Pupille – und erlischt sofort im Herzen.</p>
+          <h4>Stilmittel</h4>
+          <p><strong>Hyperbel</strong> «tausend Stäbe»: steigert die Isolation ins Unermessliche – es gibt nicht 3 Gitter-Stäbe, es gibt tausend. Die Realität selbst besteht aus Einschränkungen. «Keine Welt» dahinter: Isolation vernichtet nicht nur Freiheit, sondern Realität. <strong>Enjambement</strong> durch alle Strophen: der Gang des Panthers läuft über die Zeilenenden hinaus, findet aber nie ein Ende. <strong>«Tanz von Kraft um eine Mitte»</strong>: schöne, aber tragische Metapher – Kraft, die sich selbst verzehrt, weil sie nirgendwo hingehen kann.</p>
+          <h4>Die dritte Strophe</h4>
+          <p>Das «Manchmal» der Hoffnung – ein Bild, ein Funken. Aber: «hört im Herzen auf zu sein». Das Bild stirbt, bevor es wirkt. Isolation löscht nicht nur Möglichkeiten aus – sie löscht die Fähigkeit, Möglichkeiten zu empfangen. Das ist die tiefste Form der Gefangenschaft.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Direkteste Darstellung von Isolation in Rilkes Lyrik. Vergleich mit Gregor Samsa (Verwandlung): Auch Gregors Zimmer wird zum Käfig. Vergleich mit Möbius: beide haben einen «grossen Willen», der durch Einschliessen erlischt. Beide sind Genies hinter Gittern – realen oder metaphorischen.</p>
         </div>
+      </div>
+      <div class="iso-tag">Isolation durch Gefangenschaft → Kraft wird nutzlos</div>
+    </div>
 
-        <!-- Flamingos -->
-        <div id="r-flamingos" class="panel">
-          <div class="textstelle-block">und schreiten einzeln ins Imaginäre.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Sieben Worte – stärkstes Bild des Gedichts. «Einzeln» = Isolation. «Imaginäre» = ein Reich, das nur für die Flamingos existiert. Kontrast zum Panther: dort Isolation als Leid und Lähmung, hier als Würde und ästhetische Selbstbezüglichkeit. Die Flamingos brauchen keine Gemeinschaft.
-          </div>
-          <div class="iso-tag">Isolation als ästhetischer Rückzug – positiv, würdevoll</div>
+    <!-- KARUSSELL -->
+    <div id="r-karussell" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Neue Gedichte, 1907</div>
+          <pre>Mit einem Dach und seinem Schatten dreht
+sich eine kleine Weile der Bestand
+von bunten Pferden, alle aus dem Land,
+das lange zögert, eh es untergeht.
+
+Zwar manche sind an Wagen angespannt,
+doch alle haben Mut in ihren Mienen;
+ein böser roter Löwe geht mit ihnen
+und dann und wann ein weißer Elefant.
+
+Sogar ein Hirsch ist da ganz wie im Wald,
+nur daß er einen Sattel trägt und drüber
+ein kleines blaues Mädchen aufgeschnallt.
+
+Und auf dem Löwen reitet weiß ein Junge
+und hält sich mit der kleinen heißen Hand,
+<span class="hl">dieweil der Löwe Zähne zeigt und Zunge.</span>
+
+<span class="hl">Und dann und wann ein weißer Elefant.</span>
+
+Und auf den Pferden kommen sie vorbei,
+auch Mädchen, helle, diesem Pferdesprunge
+fast schon entwachsen; mitten in dem Schwunge
+<span class="hl">schauen sie auf, irgendwohin, herüber –</span>
+
+<span class="hl">Und dann und wann ein weißer Elefant.</span>
+
+Und das geht hin und eilt sich, daß es endet,
+<span class="hl">und kreist und dreht sich nur und hat kein Ziel.</span>
+Ein Rot, ein Grün, ein Grau vorbeigesendet,
+ein kleines kaum begonnenes Profil –.
+<span class="hl">Und manchmal ein Lächeln, hergewendet,
+ein seliges, das blendet und verschwendet
+an dieses atemlose blinde Spiel.</span></pre>
         </div>
-
-        <!-- Ich fürchte mich -->
-        <div id="r-fuerchte" class="panel">
-          <div class="textstelle-block">Die Dinge singen hör ich so gern.
-Ihr rührt sie an: sie sind starr und stumm.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            «Singen» vs. «starr und stumm» – Kontakt mit anderen Menschen zerstört die magische Wahrnehmung. Rilkes Dichter-Ich muss sich isolieren, um künstlerisch sehen zu können. Sprachkritik: Benennen heisst einschränken, Wörter schaffen Grenzen. Verbindung zu «Jugend ohne Gott»: auch der Lehrer ist isoliert, weil er anders wahrnimmt als die Masse.
-          </div>
-          <div class="iso-tag">Isolation als Schutz vor Sprache und gesellschaftlicher Vereinnahmung</div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>Freie Strophenform, unregelmässige Zeilenlänge. Der Refrain «Und dann und wann ein weißer Elefant» erscheint dreimal – und bildet formal die Kreisbewegung ab: man kehrt immer wieder zum selben Punkt zurück.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Ein Karussell im Jardin du Luxembourg in Paris. Kinder auf bunten Tieren drehen sich – die Tiere sind verfremdet (Löwe mit Zähnen, Hirsch mit Sattel). Die Bewegung hat kein Ziel. Das «atemlose blinde Spiel» ist die treffendste Zusammenfassung.</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Refrain</strong> als Kreisbewegung: formal und inhaltlich dasselbe – man kommt nie an. <strong>«Schauen sie auf, irgendwohin, herüber»</strong>: Die Kinder schauen aus der Kreisbewegung heraus – aber «irgendwohin», kein konkretes Ziel, kein Entkommen. <strong>«Kreist und dreht sich nur und hat kein Ziel»</strong>: Das Paradox – Bewegung als Stillstand. Man ist aktiv, kommt aber nicht vorwärts. <strong>Farbblitze «Rot, Grün, Grau»</strong>: Identität zerfällt in der Bewegung zu Farbstreifen – niemand ist mehr erkennbar als Person.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Isolation durch sinnlose Wiederholung und Bewegung ohne Fortschritt. Das Karussell als Bild für das Leben vieler: man ist beschäftigt, dreht sich, kommt aber nie heraus. Verbindung zu Gregor Samsa: Auch er bewegte sich in Kreisen – beruflich und dann buchstäblich in seinem Zimmer. Das «blinde Spiel» erinnert an die Welt in «Die Physiker»: auch dort drehen sich alle im Kreis, ohne zu merken, dass sie bereits verloren haben.</p>
         </div>
+      </div>
+      <div class="iso-tag">Isolation durch Kreisbewegung – Bewegung ohne Ankommen</div>
+    </div>
 
-        <!-- Herbsttag -->
-        <div id="r-herbsttag" class="panel">
-          <div class="info-grid" style="margin-bottom:1rem">
-            <div class="info-box">
-              <div class="lbl">Form</div>
-              <div class="kv"><span class="k">Struktur</span><span class="v">3 ungleiche Strophen</span></div>
-              <div class="kv"><span class="k">Anrede</span><span class="v">«Herr» = Gott / Schicksal</span></div>
-              <div class="kv"><span class="k">Ton</span><span class="v">Resigniert, aber würdevoll</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Stilmittel</div>
-              <div class="kv"><span class="k">Imperativ</span><span class="v">«Leg», «Befiehl», «Jage»</span></div>
-              <div class="kv"><span class="k">Parallelismus</span><span class="v">«Wer jetzt… / Wer jetzt…»</span></div>
-              <div class="kv"><span class="k">Tempus</span><span class="v">Futur = Prophezeiung</span></div>
-            </div>
-          </div>
-          <div class="textstelle-block">Wer jetzt kein Haus hat, baut sich keines mehr.
-Wer jetzt allein ist, wird es lange bleiben,
+    <!-- LIEBES-LIED -->
+    <div id="r-liebes" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Neue Gedichte, 1907</div>
+          <pre><span class="hl">Wie soll ich meine Seele halten, daß
+sie nicht an deine rührt? Wie soll ich sie</span>
+hinheben über dich zu andern Dingen?
+Ach gerne möcht ich sie bei irgendwas
+Verlorenem im Dunkel unterbringen
+an einer fremden stillen Stelle, die
+nicht weiterschwingt, wenn deine Tiefen schwingen.
+
+<span class="hl">Doch alles, was uns anrührt, dich und mich,
+nimmt uns zusammen wie ein Bogenstrich,</span>
+der aus zwei Saiten eine Stimme zieht.
+<span class="hl">Auf welches Instrument sind wir gespannt?
+Und welcher Geiger hat uns in der Hand?</span>
+O süßes Lied.</pre>
+        </div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>Unregelmässige Strophenform, aber mit Reimstruktur (Kreuz- und Umarmungsreim). Die Form ist bewusst «ungelöst» – sie bildet die innere Zerrissenheit des lyrischen Ichs ab.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Das lyrische Ich möchte seine Seele «unterbringen» – isolieren – von der des geliebten Menschen. Der Wunsch nach Trennung entspringt nicht Gleichgültigkeit, sondern dem Gegenteil: zu viel Nähe, zu grosse Verschmelzungsgefahr. Aber der Bogenstrich-Vergleich zeigt: Isolation ist in der Liebe unmöglich.</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Frage als Eröffnung</strong>: Hilflosigkeit ist das erste Wort, das erste Gefühl. «Wie soll ich» – nicht «Ich werde», nicht «Ich kann». Die Frage ist rhetorisch; es gibt keine Antwort. <strong>Bogenstrich-Metapher</strong>: Ein Bogenstrich berührt zwei Saiten gleichzeitig und erzeugt eine gemeinsame Stimme – man kann die Saiten nicht trennen, ohne die Musik zu zerstören. <strong>«Welcher Geiger hat uns in der Hand?»</strong>: Kontrollverlust. Wer steuert diese Verbindung? Gott? Das Schicksal? Die Liebe selbst? Das «O süßes Lied» am Ende ist eine resignierte Kapitulation – süss und melancholisch zugleich.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Ein Paradox: Isolation als Sehnsucht im Liebesgedicht. Die Marquise von O. ist die erzählerische Entsprechung: Eine Frau, die Kontrolle über ihre eigene Geschichte haben will, aber durch Umstände und andere Menschen daran gehindert wird. Bei Rilke ist die Bedrohung die Liebe selbst; bei Kleist ist es die Gesellschaft.</p>
+        </div>
+      </div>
+      <div class="iso-tag">Isolation als Wunsch in der Liebe – paradox und unmöglich</div>
+    </div>
+
+    <!-- FLAMINGOS -->
+    <div id="r-flamingos" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Neue Gedichte, 1907</div>
+          <pre>In Spiegelbildern wie von Fragonard
+ist doch von ihrem Weiß und ihrer Röte
+nicht mehr gegeben als dir einer böte,
+wenn er von seiner Freundin sagt: sie war
+
+noch sanft von Schlaf. Denn steigen sie ins Grüne
+und stehn, auf rosa Stielen leicht gedreht,
+beisammen, blühend, wie in einem Beet,
+verführen sie verführender als Phryne
+
+<span class="hl">sich selber; bis sie ihres Auges Bleiche
+hinhaltend bergen in der eignen Weiche,
+in der die Farbe sich von Farbe leert;</span>
+
+auf einmal kreischt ein Neid durch die Volière;
+<span class="hl">sie aber haben sich erstaunt gestreckt
+und schreiten einzeln ins Imaginäre.</span></pre>
+        </div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>Sonett (4-4-3-3), aber mit unregelmässiger Reimstruktur. Die Form ist elegant und kontrolliert – wie die Flamingos selbst.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Flamingos im Zoo – aber als ästhetische Wesen, die sich selbst genügen. Phryne war eine berühmte griechische Hetäre – die Flamingos «verführen verführender als Phryne sich selber»: Sie sind so schön, dass sie sich selbst überbieten. Der Neid aus der Volière stört sie nicht.</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Fragonard-Vergleich</strong>: Der französische Rokoko-Maler steht für zarte, sinnliche Schönheit. Rilke verortet die Flamingos in der Welt der Hochkunst. <strong>«Bergen in der eignen Weiche»</strong>: Die Flamingos verstecken ihr Gesicht im eigenen Gefieder – buchstäbliche Selbst-Isolation als Selbstschutz und Selbstgenüge. <strong>«Kreischt ein Neid»</strong>: Die Aussenwelt reagiert mit Neid – aber das stört die Flamingos nicht. <strong>«Schreiten einzeln ins Imaginäre»</strong>: Sieben Worte – das stärkste Bild des Gedichts. «Einzeln» = Isolation. «Imaginäre» = ein Reich, das nur für sie existiert, jenseits der Realität des Zoos.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Kontrast zum Panther: Dort ist Isolation Leid und Lähmung; hier ist sie Würde und Stärke. Verbindung zu Möbius (Physiker): Auch er zieht sich «ins Imaginäre» zurück (die Anstalt), aber sein Rückzug scheitert an der Realität. Die Flamingos existieren in einer anderen Logik – sie sind vielleicht der einzige Rilke-Charakter, der Isolation vollständig gelingt.</p>
+        </div>
+      </div>
+      <div class="iso-tag">Isolation als ästhetischer Rückzug – positiv, würdevoll</div>
+    </div>
+
+    <!-- ICH FÜRCHTE MICH -->
+    <div id="r-fuerchte" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Frühwerk, 1897</div>
+          <pre><span class="hl">Ich fürchte mich so vor der Menschen Wort.</span>
+Sie sprechen alles so deutlich aus:
+Und dieses heißt Hund und jenes heißt Haus,
+und hier ist Beginn und das Ende ist dort.
+
+Mich bangt auch ihr Sinn, ihr Spiel mit dem Spott,
+sie wissen alles, was wird und war;
+kein Berg ist ihnen mehr wunderbar;
+ihr Garten und Gut grenzt grade an Gott.
+
+<span class="hl">Ich will immer warnen und wehren: Bleibt fern.
+Die Dinge singen hör ich so gern.
+Ihr rührt sie an: sie sind starr und stumm.</span>
+
+Ihr tötet mir alles, ihr Gefahrdrohn,
+und lacht, wenn ich sage, der Stein sei Ton
+und ihr bildet aus dem Tone, ihr Toren, Ton.</pre>
+        </div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>3 Quartette und 1 Terzett, kreuzreimend. Das Frühwerk (1897) zeigt einen noch nicht vollentwickelten Stil, aber bereits Rilkes Kernthema: die Insuffizienz der Sprache.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Das lyrische Ich fürchtet die menschliche Sprache, weil sie die Dinge «abstumpft» – benennen heisst einschränken. «Hund» und «Haus» sind bloss Etiketten; sie töten das Wunderbare der Dinge. Rilke entwickelt hier den Kern seiner Poetologie: Sprache als unzureichendes Instrument.</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Alliteration «warnen und wehren»</strong>: klingt defensiv, fast militärisch – das lyrische Ich muss sich verteidigen. <strong>«Ihr Garten und Gut grenzt grade an Gott»</strong>: Die Menschen glauben, alles zu wissen, sogar Gott zu kennen. Anmaßung als Sprachroutine. <strong>«Die Dinge singen»</strong>: Die stummen Dinge haben eine eigene, nicht-sprachliche Sprache – die durch menschliche Benennung zerstört wird. <strong>Wortspiel «Ton/Tone/Ton»</strong>: Das letzte Wort ist kunstvoll – «Ton» als Klang und «Ton» als Material (Lehm). Ihr zerstört Klang und formt Masse.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Isolation als Schutzreaktion: Das lyrische Ich muss sich von sprachgewandten Menschen fernhalten, um die stille Welt der Dinge wahrnehmen zu können. Verbindung zu «Jugend ohne Gott»: Auch der Lehrer ist isoliert, weil er anders hört und sieht als die Masse. Verbindung zu Rilkes Dinggedicht-Konzept: «Der Panther», «Die Flamingos» sind Antworten auf dieses Gedicht – der Versuch, Dinge zu beschreiben, ohne sie zu töten.</p>
+        </div>
+      </div>
+      <div class="iso-tag">Isolation als Schutz vor Sprache und Vereinnahmung</div>
+    </div>
+
+    <!-- HERBSTTAG -->
+    <div id="r-herbsttag" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Buch der Bilder, 1902</div>
+          <pre>Herr: es ist Zeit. Der Sommer war sehr groß.
+Leg deinen Schatten auf die Sonnenuhren,
+und auf den Fluren laß die Winde los.
+
+Befiehl den letzten Früchten voll zu sein;
+gieb ihnen noch zwei südlichere Tage,
+dränge sie zur Vollendung hin und jage
+die letzte Süße in den schweren Wein.
+
+Wer jetzt kein Haus hat, baut sich keines mehr.
+<span class="hl">Wer jetzt allein ist, wird es lange bleiben,
 wird wachen, lesen, lange Briefe schreiben
 und wird in den Alleen hin und her
-unruhig wandern, wenn die Blätter treiben.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Parallelismus + Zukunftsform: Isolation als Prophezeiung, nicht als Möglichkeit. Das «jetzt» ist entscheidend – es gibt keinen zweiten Zeitpunkt. «Lange Briefe schreiben» = Surrogat-Kommunikation: der Einsame kommuniziert, findet aber keinen echten Empfänger. Die fünfzeilige Schlussstrophe dehnt die Einsamkeit auch formal aus. Stärkste Isolation-Aussage im gesamten Rilke-Korpus.
-          </div>
-          <div class="iso-tag">Isolation als unwiderrufliches Schicksal – kein Ausweg mehr</div>
+unruhig wandern, wenn die Blätter treiben.</span></pre>
         </div>
-
-        <!-- Herbst -->
-        <div id="r-herbst" class="panel">
-          <div class="textstelle-block">Und in den Nächten fällt die schwere Erde
-aus allen Sternen in die Einsamkeit.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Kosmische Isolation: nicht nur der Mensch – die Erde selbst fällt in die Einsamkeit. Hyperbel ins Kosmische = Isolation als Naturgesetz, nicht als persönliches Versagen. «Schwere Erde» vs. «Sterne» = Gewicht der Einsamkeit ist real, physisch spürbar. Der Trost am Ende («Einer… der dieses Fallen hält») bleibt offen – Gott? Das Kunstwerk selbst?
-          </div>
-          <div class="iso-tag">Isolation als kosmisches Naturgesetz – universell und unausweichlich</div>
-        </div>
-
-        <!-- Der Schauende -->
-        <div id="r-schauende" class="panel">
-          <div class="textstelle-block">Sein Wachstum ist: der Tiefbesiegte
-von immer Größerem zu sein.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Paradox: Wachstum = Niederlage. Je grösser die Kraft, die einen überwindet, desto grösser man selbst wird. Isolation und Überwindung als formende Kräfte. Die Engel-Metapher aus dem AT (Jakob ringt mit dem Engel) zeigt: Niederlagen durch Grösseres formen den Menschen. Verbindung zu «Jugend ohne Gott»: der Lehrer wächst durch seine moralische Isolation.
-          </div>
-          <div class="iso-tag">Isolation als Wachstumsprozess – produktiv durch Niederlage</div>
-        </div>
-
-        <!-- Der Einsame -->
-        <div id="r-einsame" class="panel">
-          <div class="info-grid" style="margin-bottom:1rem">
-            <div class="info-box">
-              <div class="lbl">Form</div>
-              <div class="kv"><span class="k">Struktur</span><span class="v">3 Quartette (Sonett-nah)</span></div>
-              <div class="kv"><span class="k">Ton</span><span class="v">Resigniert, selbstreflexiv</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Stilmittel</div>
-              <div class="kv"><span class="k">Vergleich</span><span class="v">Einsamer = Fernreisender</span></div>
-              <div class="kv"><span class="k">Antithese</span><span class="v">«voll» (andere) vs. «Ferne» (Ich)</span></div>
-            </div>
-          </div>
-          <div class="textstelle-block">Wie einer, der auf fremden Meeren fuhr,
-so bin ich bei den ewig Einheimischen.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Der Seefahrer-Vergleich zeigt: Isolation entsteht nicht durch Abwesenheit, sondern durch andere Erfahrungen. Der Einsame ist physisch anwesend, aber geistig woanders. Direktes Pendant zu Grenouille und Gregor Samsa – alle drei sind «unter» Menschen, aber nie «bei» ihnen. Die Dinge, die er «weither mitbrachte», halten «den Atem an vor Scham» = Andersartigkeit als Bürde, nicht als Wahl.
-          </div>
-          <div class="iso-tag">Isolation unter Menschen – Fremdheitsgefühl durch Andersartigkeit</div>
-        </div>
-
-        <!-- Archaischer Torso -->
-        <div id="r-torso" class="panel">
-          <div class="info-grid" style="margin-bottom:1rem">
-            <div class="info-box">
-              <div class="lbl">Form</div>
-              <div class="kv"><span class="k">Struktur</span><span class="v">Petrarkisches Sonett (4-4-3-3)</span></div>
-              <div class="kv"><span class="k">Objekt</span><span class="v">Antike Skulptur (kopflos)</span></div>
-              <div class="kv"><span class="k">Schluss</span><span class="v">Direkter Imperativ ans «Du»</span></div>
-            </div>
-            <div class="info-box">
-              <div class="lbl">Stilmittel</div>
-              <div class="kv"><span class="k">Paradox</span><span class="v">Kopfloser Torso «sieht»</span></div>
-              <div class="kv"><span class="k">Synästhesie</span><span class="v">Licht-Sehen-Glühen</span></div>
-              <div class="kv"><span class="k">Imperativ</span><span class="v">«Du mußt dein Leben ändern»</span></div>
-            </div>
-          </div>
-          <div class="textstelle-block">denn da ist keine Stelle,
-die dich nicht sieht. Du mußt dein Leben ändern.</div>
-          <div class="interp-box">
-            <div class="interp-label">Interpretation</div>
-            Das Kunstwerk als Anti-Isolation: Es nimmt den Betrachter total wahr, lässt ihn nicht in seiner Einsamkeit. Der Imperativ ist unerbittlich – nicht Bitte, nicht Empfehlung. Das Sonett als Form spiegelt die Vollkommenheit des Torsos. Kopfloser Torso «sieht» trotzdem überall = totale Präsenz ohne körperliche Vollständigkeit. Verbindung zu «Jugend ohne Gott»: Begegnung mit etwas Grösserem zwingt zur Veränderung.
-          </div>
-          <div class="iso-tag">Isolation aufgehoben durch Kunst – das Kunstwerk sieht uns total</div>
-        </div>
-
-        <!-- Alle im Vergleich -->
-        <div id="r-alle" class="panel">
-          <div class="compare-row"><span class="compare-name">Der Panther</span><span class="compare-text">Gefangenschaft → Kraft wird nutzlos. Trostlos, ohne Ausweg.</span></div>
-          <div class="compare-row"><span class="compare-name">Das Karussell</span><span class="compare-text">Bewegung ohne Ziel → kein Ankommen. Kindliche Ahnungslosigkeit der Isolation.</span></div>
-          <div class="compare-row"><span class="compare-name">Liebes-Lied</span><span class="compare-text">Nähe als Bedrohung → Paradox: Liebe und Wunsch nach Isolation schliessen sich eigentlich aus.</span></div>
-          <div class="compare-row"><span class="compare-name">Die Flamingos</span><span class="compare-text">Ästhetischer Rückzug → positiv, würdevoll. Schönheit braucht keine Gemeinschaft.</span></div>
-          <div class="compare-row"><span class="compare-name">Ich fürchte mich…</span><span class="compare-text">Schutz vor Sprache → Isolation als Bedingung für künstlerische Wahrnehmung.</span></div>
-          <div class="compare-row"><span class="compare-name">Herbsttag</span><span class="compare-text">Unwiderrufliches Schicksal → «Wer jetzt allein ist, wird es lange bleiben.»</span></div>
-          <div class="compare-row"><span class="compare-name">Herbst</span><span class="compare-text">Kosmisches Naturgesetz → nicht nur Mensch, die Erde fällt in Einsamkeit.</span></div>
-          <div class="compare-row"><span class="compare-name">Der Schauende</span><span class="compare-text">Wachstum durch Niederlage → produktive Isolation, formende Kraft.</span></div>
-          <div class="compare-row"><span class="compare-name">Der Einsame</span><span class="compare-text">Fremd unter Menschen → physisch anwesend, geistig woanders.</span></div>
-          <div class="compare-row" style="border:none"><span class="compare-name">Archaischer Torso</span><span class="compare-text">Isolation aufgehoben durch Kunst → Imperativ zur Veränderung.</span></div>
-          <div style="margin-top:1.25rem; padding:1.25rem; background: var(--accent-glow); border: 1px solid rgba(108,99,255,0.25); border-radius: var(--radius-sm);">
-            <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;">Kernthese für die Prüfung</div>
-            <p style="font-size:14px; color: var(--text); line-height:1.75; font-style:italic;">«Rilkes Gedichte zeigen Isolation in ihrer ganzen Spannbreite: vom vernichtenden Gefängnis (Panther) bis zur produktiven Einsamkeit (Schauender) und dem ästhetischen Rückzug (Flamingos). Was sie alle verbindet: Das lyrische Ich ist stets das wahrnehmende Subjekt, das von der Gemeinschaft getrennt ist – aber gerade deshalb tiefer sieht.»</p>
-          </div>
-        </div>
-
-      </div><!-- /werk-body -->
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════════════
-       PANEL: WERKÜBERGREIFEND
-  ═══════════════════════════════════════════════ -->
-  <div id="uebergreifend" class="panel">
-    <div class="werk-card">
-      <div class="werk-header">
-        <div class="werk-title-block">
-          <div class="title">Werkübergreifende Analyse</div>
-          <div class="sub">Thema Isolation · Vergleiche · Schlüsselsätze</div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>3 Strophen, zunehmend länger (3-4-5 Zeilen). Die Dehnung der letzten Strophe spiegelt die gedehnte Einsamkeit des Winters. Reimschema: aba / bcbc / addda. Anrede «Herr» (Gott oder das Schicksal) gibt dem Gedicht einen sakralen Ton.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Strophe 1-2: Bitte an Gott, die Natur zum herbstlichen Abschluss zu bringen. Reife, Vollendung, Übergang. Strophe 3: Plötzlicher Schnitt zu menschlichem Schicksal – wer jetzt allein ist, wird es bleiben. Der Herbst als Zäsur: was ist, wird sich festigen.</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Parallelismus «Wer jetzt… / Wer jetzt…»</strong>: Symmetrie als Schicksalslogik. «Kein Haus» und «allein» werden parallel gesetzt – materielle und emotionale Obdachlosigkeit als zwei Seiten derselben Not. <strong>Futur als Prophezeiung</strong>: «Wird es lange bleiben» – nicht «könnte», nicht «vielleicht». Es ist gesetzt. <strong>«Lange Briefe schreiben»</strong>: Der Einsame kommuniziert – aber einseitig, ohne sicheren Empfänger. Schreiben als Surrogat-Kontakt. <strong>«Unruhig wandern, wenn die Blätter treiben»</strong>: Das Fallen der Blätter (vgl. «Herbst») und das ruhelose Wandern bilden eine Einheit – beide fallen, beide finden keinen Halt.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Das stärkste Isolation-Gedicht im ganzen Korpus: Isolation als unwiderrufliches Schicksal nach einem Wendepunkt. Verbindung zur Marquise: Nach dem Verstoss durch die Familie ist sie genau in dieser Position – «jetzt allein», und es droht, für lange Zeit so zu bleiben. Verbindung zu Grenouille: Er hat nie ein «Haus» gehabt – nie einen Ort, der ihm gehörte. Der erste Vers trifft auf sein ganzes Leben zu.</p>
         </div>
       </div>
-      <div class="werk-body">
-        <div class="sub-nav">
-          <button class="active" onclick="showSub('u', 'vergleich', this)">Isolationstypen</button>
-          <button onclick="showSub('u', 'epoche', this)">Epochenvergleich</button>
-          <button onclick="showSub('u', 'saetze', this)">Schlüsselsätze</button>
-          <button onclick="showSub('u', 'fragen', this)">Vergleichsfragen</button>
+      <div class="iso-tag">Isolation als unwiderrufliches Schicksal nach einem Wendepunkt</div>
+    </div>
+
+    <!-- HERBST -->
+    <div id="r-herbst" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Buch der Bilder, 1906</div>
+          <pre>Die Blätter fallen, fallen wie von weit,
+als welkten in den Himmeln ferne Gärten;
+sie fallen mit verneinender Gebärde.
+
+Und in den Nächten fällt die schwere Erde
+<span class="hl">aus allen Sternen in die Einsamkeit.</span>
+
+<span class="hl">Wir alle fallen. Diese Hand da fällt.
+Und sieh dir andre an: es ist in allen.</span>
+
+<span class="hl">Und doch ist Einer, welcher dieses Fallen
+unendlich sanft in seinen Händen hält.</span></pre>
         </div>
-        <div id="u-vergleich" class="sub-panel active">
-          <div class="compare-row"><span class="compare-name">Das Parfum</span><span class="compare-text"><strong style="color:var(--text)">Identitäre Isolation:</strong> fehlender Eigengeruch = kein Platz in der menschlichen Gemeinschaft. Isolation als Ursprung von Gewalt und destruktivem Genie.</span></div>
-          <div class="compare-row"><span class="compare-name">Die Verwandlung</span><span class="compare-text"><strong style="color:var(--text)">Funktionale Isolation:</strong> Gregor verliert seinen Wert für die Familie. Isolation als Folge kapitalistischer Ausbeutung und Entfremdung.</span></div>
-          <div class="compare-row"><span class="compare-name">Jugend ohne Gott</span><span class="compare-text"><strong style="color:var(--text)">Moralische Isolation:</strong> Der Lehrer steht allein mit seinem Gewissen in einer gleichgeschalteten Gesellschaft.</span></div>
-          <div class="compare-row"><span class="compare-name">Marquise von O.</span><span class="compare-text"><strong style="color:var(--text)">Soziale Isolation:</strong> Erzwungen durch patriarchale Gesellschaft. Das Opfer wird für die Täterhandlung bestraft.</span></div>
-          <div class="compare-row"><span class="compare-name">Die Physiker</span><span class="compare-text"><strong style="color:var(--text)">Strategische Isolation:</strong> Freiwilliger Rückzug als Schutzstrategie – scheitert, da Isolation keine Kontrolle über die Welt gibt.</span></div>
-          <div class="compare-row" style="border:none"><span class="compare-name">Rilke – Lyrik</span><span class="compare-text"><strong style="color:var(--text)">Existenzielle Isolation:</strong> Einsamkeit als ästhetische Bedingung für tiefes Empfinden und künstlerisches Schaffen. Vielschichtig: mal Leid, mal Würde, mal Naturgesetz.</span></div>
-        </div>
-        <div id="u-epoche" class="sub-panel">
-          <div class="epoch-row"><span class="epoch-year">Kleist, 1808 (vor 1900)</span><span class="epoch-text">Isolation durch gesellschaftliche Moral und Geschlechternormen. Das Individuum scheitert an patriarchalen Strukturen.</span></div>
-          <div class="epoch-row"><span class="epoch-year">Kafka / Rilke, 1900–1920er</span><span class="epoch-text">Isolation als existenzielle Grundbedingung des modernen Subjekts. Entfremdung, Identitätsverlust, Sprache als Grenze.</span></div>
-          <div class="epoch-row"><span class="epoch-year">Horváth, 1937 (Exilliteratur)</span><span class="epoch-text">Isolation als Reaktion auf totalitäres System. Moralische Integrität erzwingt Ausschluss.</span></div>
-          <div class="epoch-row"><span class="epoch-year">Dürrenmatt, 1962</span><span class="epoch-text">Isolation im Zeitalter atomarer Bedrohung. Selbstgewählter Rückzug des Genies als utopische Lösung – die scheitert.</span></div>
-          <div class="epoch-row" style="border:none"><span class="epoch-year">Süskind, 1985 (Postmoderne)</span><span class="epoch-text">Isolation als dekonstruiertes Konstrukt – ironisch gebrochen, parodistisch überhöht. Grenouille als Anti-Held der Moderne.</span></div>
-        </div>
-        <div id="u-saetze" class="sub-panel">
-          <div class="quote-card">In allen Werken erscheint Isolation nicht als Zufall, sondern als Produkt gesellschaftlicher Strukturen, die das Individuum ausgrenzen, funktionalisieren oder zum Schweigen zwingen.</div>
-          <div class="quote-card">Während Rilke Isolation ästhetisch bejaht und Möbius sie strategisch wählt, scheitern Grenouille und Gregor Samsa an ihr – was zeigt, dass Isolation nie eine dauerhafte Lösung sein kann.</div>
-          <div class="quote-card">Kleists Marquise markiert den historischen Ursprung des Themas: Schon 1808 zeigt sich, dass gesellschaftliche Moral und individuelle Würde im Konflikt stehen – ein Thema, das bis Dürrenmatt 1962 virulent bleibt.</div>
-          <div class="quote-card">Allen Figuren gemeinsam ist das Paradox: Die Isolation, die sie schützen soll oder die über sie verhängt wird, zerstört gerade das, was sie bewahren wollten – Identität, Würde, Freiheit oder Wissen.</div>
-        </div>
-        <div id="u-fragen" class="sub-panel">
-          <p class="prose" style="margin-bottom:1rem">Mögliche Vergleichsfragen der Prüferin – vorbereitet sein auf:</p>
-          <div class="compare-row"><span class="compare-name" style="min-width:0;flex:0 0 auto;margin-right:8px">Frage 1</span><span class="compare-text">Vergleiche zwei Figuren, die sich bewusst isolieren – welche Motive haben sie? (Möbius vs. Grenouille)</span></div>
-          <div class="compare-row"><span class="compare-name" style="min-width:0;flex:0 0 auto;margin-right:8px">Frage 2</span><span class="compare-text">Inwiefern ist Isolation bei [Werk A] Folge, bei [Werk B] Ursache von Problemen?</span></div>
-          <div class="compare-row"><span class="compare-name" style="min-width:0;flex:0 0 auto;margin-right:8px">Frage 3</span><span class="compare-text">Welche Rolle spielt die Gesellschaft als isolierende Kraft in mindestens zwei Werken?</span></div>
-          <div class="compare-row"><span class="compare-name" style="min-width:0;flex:0 0 auto;margin-right:8px">Frage 4</span><span class="compare-text">Wo ist Isolation produktiv (Rilke, Schauender), wo zerstörerisch (Panther, Verwandlung)?</span></div>
-          <div class="compare-row"><span class="compare-name" style="min-width:0;flex:0 0 auto;margin-right:8px">Frage 5</span><span class="compare-text">Wie verändert sich die Darstellung von Isolation zwischen dem 19. und 20. Jahrhundert? (Kleist → Dürrenmatt)</span></div>
-          <div class="compare-row" style="border:none"><span class="compare-name" style="min-width:0;flex:0 0 auto;margin-right:8px">Frage 6</span><span class="compare-text">Tiere als Symbole: Der Panther (Rilke) vs. Tier-Metaphern in anderen Werken (Ungeziefer bei Kafka).</span></div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>Unregelmässige Strophen (3-2-2-2), kein festes Reimschema – das «Fallen» wird auch formal abgebildet: Die Strophen sind selbst «fallend», ungleich, ungehalten. Sehr kurz (9 Zeilen) – verdichtet auf das Wesentliche.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Das Fallen der Blätter weitet sich kosmisch aus: Die Erde selbst fällt «aus allen Sternen in die Einsamkeit». Dann das universelle Menschenlos: «Wir alle fallen.» Eine einfache Beobachtung, die alles umfasst. Am Ende: ein «Einer», der das Fallen «unendlich sanft in seinen Händen hält».</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Ausweitung von Mikro zu Makro</strong>: Blatt → Erde → «Wir alle» → «Hand». Die Bewegung geht paradoxerweise von gross zurück zu klein, vom Kosmos zur einzelnen Hand. <strong>«Verneinender Gebärde»</strong>: Das Fallen der Blätter ist eine Geste – als würde die Natur «Nein» sagen. Nein zu was? Zu Festigkeit, zu Dauer, zu Gemeinschaft. <strong>«Diese Hand da fällt»</strong>: Das direkteste Bild – Rilke zeigt auf eine konkrete Hand. Isolation ist nicht abstrakt; sie betrifft diesen Körper, diese Person. <strong>Der «Einer» am Ende</strong>: absichtlich vage. Gott? Das Gedicht selbst? Die Kunst? Der Trost ist zart und unsicher – «sanft», nicht «stark».</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Isolation als universelles Menschenlos – niemand ist ausgenommen. Verbindung zu Kafkas Gregor: Auch er fällt, aus seiner Rolle, aus seiner Familie, aus dem Leben – «und hört im Herzen auf zu sein» (vgl. Panther-Schluss). Der «Einer» am Ende könnte als Hoffnung gelesen werden: auch in der tiefsten Isolation gibt es ein Gehalten-Werden – vielleicht durch die Literatur selbst.</p>
         </div>
       </div>
+      <div class="iso-tag">Isolation als kosmisches Naturgesetz – universell, aber sanft aufgefangen</div>
+    </div>
+
+    <!-- DER SCHAUENDE -->
+    <div id="r-schauende" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Buch der Bilder, 1901/06</div>
+          <pre>Ich sehe den Bäumen die Stürme an,
+die aus laugewordenen Tagen
+an meine ängstlichen Fenster schlagen,
+und höre die Fernen Dinge sagen,
+die ich nicht ohne Freund ertragen,
+nicht ohne Schwester lieben kann.
+
+Da geht der Sturm, ein Umgestalter,
+geht durch den Wald und durch die Zeit,
+<span class="hl">und alles ist wie ohne Alter:
+die Landschaft, wie ein Vers im Psalter,
+ist Ernst und Wucht und Ewigkeit.</span>
+
+Wie ist das klein, womit wir ringen,
+was mit uns ringt, wie ist das groß;
+<span class="hl">ließen wir, ähnlicher den Dingen,
+uns so vom großen Sturm bezwingen –
+wir würden weit und namenlos.</span>
+
+<span class="hl">Was wir besiegen, ist das Kleine,
+und der Erfolg selbst macht uns klein.
+Das Ewige und Ungemeine
+will nicht von uns gebogen sein.
+Dies ist der Engel, der dem Fechtenden
+von einem Kampfe mit dem Gerechten
+erschien: er muß ihn schlagen lassen,
+doch stärkt er ihn durch seine Massen,
+damit er weit und immer größer wird.
+Sein Wachstum ist: der Tiefbesiegte
+von immer Größerem zu sein.</span></pre>
+        </div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>Unregelmässige Strophen mit variabler Länge. Das Gedicht wächst formal – wird länger und komplexer, genau wie das beschriebene Wachstum durch Niederlage.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Das lyrische Ich schaut einen Sturm an und erkennt: Was uns überwindet, macht uns grösser. Nicht der Sieg, sondern die Niederlage gegen Grösseres ist das Wachstum. Die Engel-Referenz aus Genesis (Jakob ringt mit dem Engel) verankert das im Mythischen.</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>«Wie ohne Alter – Ewigkeit»</strong>: Der Sturm macht Zeit irrelevant. Isolation aus der Zeit als Erkenntnis-Bedingung. <strong>«Weit und namenlos»</strong>: Wer sich dem Sturm hingibt wie die Dinge, verliert den Namen – die gesellschaftliche Identität. Namenlosigkeit als Freiheit, nicht als Verlust. <strong>«Der Engel, der dem Fechtenden erschien»</strong>: Referenz auf Jakob – der mit Gott rang und trotz Niederlage gesegnet wurde. Niederlage als Segen, Verlieren als Wachstum. <strong>«Tiefbesiegter von immer Größerem»</strong>: Paradox als Kernformel des Gedichts.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Isolation hier nicht als Leid, sondern als Bedingung für Tiefe. Wer sich abschottet vom Kleinen («womit wir ringen»), kann das Grosse hören. Verbindung zu «Jugend ohne Gott»: Der Lehrer wächst durch seine moralische Niederlage (Verlust der Stelle, Isolation) – er ist am Ende kleiner in der Gesellschaft, aber grösser als Mensch. Verbindung zu Möbius: Auch er «verliert» alles – ist aber grösser als alle anderen, die «gewonnen» haben.</p>
+        </div>
+      </div>
+      <div class="iso-tag">Isolation als Wachstum durch Niederlage – produktiv</div>
+    </div>
+
+    <!-- DER EINSAME -->
+    <div id="r-einsame" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Buch der Bilder, 1906</div>
+          <pre><span class="hl">Wie einer, der auf fremden Meeren fuhr,
+so bin ich bei den ewig Einheimischen;</span>
+die vollen Tage stehn auf ihren Tischen,
+mir aber ist die Ferne noch wie gestern.
+
+Noch unterscheide ich vom Angesicht
+die Dinge, welche besonders mich berühren,
+es streckt sich jemand aus, um sie zu rühren,
+<span class="hl">und rührt an einen Schmerz, der schier nicht spricht.</span>
+
+Und meine Hände, die ich weither brachte,
+<span class="hl">sie halten nun und halten noch die Geste
+von dem, was man beim Abschied mir versprach:</span>
+ich weiß: die Dinge, die ich weggeschaffte,
+<span class="hl">die hielten ihren Atem an vor Scham –</span>
+als ich mich ihnen näherte und nahm.</pre>
+        </div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>3 Quartette (Sonett-nah). Der Aufbau: Strophe 1 Ist-Zustand, Strophe 2 Schmerzmoment, Strophe 3 Herkunfts-Reflexion. Eine Struktur des Erinnerns.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Das lyrische Ich ist unter Menschen («ewig Einheimischen») – aber grundlegend anders. Es hat Erfahrungen gemacht («fremde Meere»), die es von allen anderen trennen. Was es mitgebracht hat, passt nicht in die bürgerliche Welt der «vollen Tische».</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Seefahrer-Gleichnis</strong>: Der Reisende kommt zurück, aber ist nicht mehr derselbe. Isolation entsteht nicht durch Abwesenheit, sondern durch Erfahrung. <strong>«Schmerz, der schier nicht spricht»</strong>: Der Schmerz ist so tief, dass er keine Sprache hat – was «Ich fürchte mich vor der Menschen Wort» aufgreift. Sprachlosigkeit des Leidens. <strong>«Hielten ihren Atem an vor Scham»</strong>: Die Dinge, die der Einsame «wegschaffte» (in die Welt trug?), schämten sich der Berührung. Als hätte sein Anders-Sein auf alles abgefärbt. <strong>«Hände, die ich weither brachte»</strong>: Die Hände – das Werkzeug der Verbindung – sind mit einer anderen Welt geladen. Sie können nicht einfach bürgerlich agieren.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Isolation unter Menschen – physisch anwesend, geistig woanders. Das ist das Pendant zu Grenouille (Parfum) und Gregor (Verwandlung): Alle drei sind «unter» Menschen, aber nie wirklich «bei» ihnen. Verbindung zur Marquise: Auch sie kehrt nach der Isolation in die Familie zurück, aber die Beziehungen sind nicht mehr dieselben. Man kann zurückkehren, aber man ist nicht mehr derselbe.</p>
+        </div>
+      </div>
+      <div class="iso-tag">Isolation unter Menschen – Fremdheit durch Andersartigkeit</div>
+    </div>
+
+    <!-- ARCHAISCHER TORSO -->
+    <div id="r-torso" class="panel">
+      <div class="gedicht-wrap">
+        <div class="gedicht-text">
+          <div class="g-lbl">Gedicht · Neue Gedichte, 1908</div>
+          <pre>Wir kannten nicht sein unerhörtes Haupt,
+darin die Augenäpfel reiften. Aber
+sein Torso glüht noch wie ein Kandelaber,
+in dem sein Schauen, nur zurückgeschraubt,
+
+sich hält und glänzt. Sonst könnte nicht der Bug
+der Brust dich blenden, und im leisen Drehen
+der Lenden könnte nicht ein Lächeln gehen
+zu jener Mitte, die die Zeugung trug.
+
+<span class="hl">Sonst stünde dieser Stein entstellt und kurz
+unter der Schultern durchsichtigem Sturz
+und flimmerte nicht so wie Raubtierfelle;</span>
+
+<span class="hl">und bräche nicht aus allen seinen Rändern
+aus wie ein Stern: denn da ist keine Stelle,
+die dich nicht sieht. Du mußt dein Leben ändern.</span></pre>
+        </div>
+        <div class="gedicht-interp">
+          <div class="g-lbl">Interpretation & Analyse</div>
+          <h4>Form & Struktur</h4>
+          <p>Petrarkisches Sonett (4-4-3-3): Oktave (Beschreibung des Torsos) und Sestet (Wirkung auf den Betrachter). Der «Volta» (Wendepunkt) kommt am Ende – mit dem Imperativ. Klassischste Form Rilkes – für das vielleicht wichtigste Gedicht der Neuen Gedichte.</p>
+          <h4>Inhalt & Kernaussage</h4>
+          <p>Ein antiker Torso – ohne Kopf, ohne Augen – «sieht» trotzdem. Das Kunstwerk ist vollständig in sich, braucht keinen vollständigen Körper, um totale Präsenz auszustrahlen. Der letzte Vers trifft den Betrachter unvermittelt: «Du mußt dein Leben ändern.»</p>
+          <h4>Stilmittel & Schlüsselstellen</h4>
+          <p><strong>Paradox – Sehen ohne Augen</strong>: «Sein Schauen, nur zurückgeschraubt» – das Sehen des Torsos ist nicht erloschen, es ist «zurückgeschraubt» wie ein Licht, das immer noch glüht. Die Augen fehlen, aber die Kraft des Blicks ist in den gesamten Körper diffundiert. <strong>«Flimmerte wie Raubtierfelle»</strong>: Vergleich mit lebendiger Tieroberfläche – der tote Stein ist lebendiger als Lebendiges. <strong>«Bricht aus allen seinen Rändern / aus wie ein Stern»</strong>: Das Kunstwerk strahlt nach aussen – es hat keine Grenzen, keine Ränder, die es einschliessen. Das Gegenteil von Isolation. <strong>«Denn da ist keine Stelle, die dich nicht sieht»</strong>: Totale Sichtbarkeit. Der Torso kennt keine blinden Flecken. Er ist das Gegenteil des Panthers (der nichts mehr sieht) – totales Sehen vs. erlöschender Blick. <strong>«Du mußt dein Leben ändern»</strong>: Imperativ, ohne Vorbereitung. Nicht «Du solltest» – «Du mußt». Das Kunstwerk spricht, und sein Sprechen ist ein Befehl. Begegnung mit vollkommener Schönheit erzwingt Selbstreflexion.</p>
+          <h4>Isolation & Verbindungen</h4>
+          <p>Der Torso hebt Isolation auf: Er sieht den Betrachter total, lässt ihn nicht in seiner Einsamkeit. Das Kunstwerk ist die einzige Kraft, die Isolation durchbricht – nicht durch Gesellschaft, sondern durch vollständige Wahrnehmung. Verbindung zu «Jugend ohne Gott»: Der Lehrer erlebt einen ähnlichen Imperativ-Moment, als er sich entscheidet, Zeugnis abzulegen. Verbindung zu Grenouille: Auch das Parfum hat die Wirkung des Torsos – es bricht aus allen Rändern aus und zwingt zur Reaktion. Aber Grenouilles «Kunst» ist destruktiv; Rilkes Torso ist erlösend.</p>
+        </div>
+      </div>
+      <div class="iso-tag">Isolation aufgehoben durch Kunst – totale Wahrnehmung als Gegengift</div>
+    </div>
+
+    <!-- ALLE IM VERGLEICH -->
+    <div id="r-alle" class="panel">
+      <div class="compare-row"><span class="compare-name">Der Panther</span><span class="compare-text">Gefangenschaft → Kraft wird nutzlos. Isolation als totale Wahrnehmungsblockade. Trostlos.</span></div>
+      <div class="compare-row"><span class="compare-name">Das Karussell</span><span class="compare-text">Bewegung ohne Ziel → Isolation in der Routine. Kindliche Ahnungslosigkeit.</span></div>
+      <div class="compare-row"><span class="compare-name">Liebes-Lied</span><span class="compare-text">Wunsch nach Isolation in der Liebe → paradox und unmöglich. Kontrollverlust.</span></div>
+      <div class="compare-row"><span class="compare-name">Die Flamingos</span><span class="compare-text">Ästhetischer Rückzug → positiv, würdevoll, vollständig. Isolation als Selbstgenüge.</span></div>
+      <div class="compare-row"><span class="compare-name">Ich fürchte mich…</span><span class="compare-text">Schutz vor Sprache → Isolation als Bedingung für künstlerisches Wahrnehmen.</span></div>
+      <div class="compare-row"><span class="compare-name">Herbsttag</span><span class="compare-text">Unwiderrufliches Schicksal → «Wer jetzt allein ist, wird es lange bleiben.»</span></div>
+      <div class="compare-row"><span class="compare-name">Herbst</span><span class="compare-text">Kosmisches Naturgesetz → universell und unausweichlich, aber sanft aufgefangen.</span></div>
+      <div class="compare-row"><span class="compare-name">Der Schauende</span><span class="compare-text">Wachstum durch Niederlage → produktive Isolation, Jakob-Engel-Referenz.</span></div>
+      <div class="compare-row"><span class="compare-name">Der Einsame</span><span class="compare-text">Fremd unter Menschen → physisch anwesend, geistig woanders.</span></div>
+      <div class="compare-row" style="border:none"><span class="compare-name">Archaischer Torso</span><span class="compare-text">Isolation aufgehoben durch Kunst → totale Sichtbarkeit als Imperativ zur Veränderung.</span></div>
+      <div style="margin-top:1.25rem;padding:1.25rem;background:var(--accent-glow);border:1px solid rgba(108,99,255,0.25);border-radius:var(--radius-sm)">
+        <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Kernthese für die Prüfung</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.75;font-style:italic">«Rilkes Gedichte zeigen Isolation in ihrer ganzen Spannbreite: vom vernichtenden Gefängnis (Panther) bis zur produktiven Einsamkeit (Schauender) und dem ästhetischen Rückzug (Flamingos). Was alle verbindet: Das lyrische Ich ist stets das wahrnehmende Subjekt, das von der Gemeinschaft getrennt ist – aber gerade deshalb tiefer sieht. Nur der Archaische Torso bricht dieses Muster auf: dort hebt Kunst die Isolation auf.»</p>
+      </div>
+    </div>
+
+  </div><!-- werk-body -->
+</div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     WERKÜBERGREIFEND
+══════════════════════════════════════════ -->
+<div id="uebergreifend" class="panel">
+<div class="werk-card">
+  <div class="werk-header">
+    <div class="werk-title-block">
+      <div class="title">Werkübergreifende Analyse</div>
+      <div class="sub">Thema Isolation · Vergleiche · Schlüsselsätze · Prüfungsfragen</div>
     </div>
   </div>
+  <div class="werk-body">
+    <div class="sub-nav">
+      <button class="active" onclick="showSub('u','vergleich',this)">Isolationstypen</button>
+      <button onclick="showSub('u','epoche',this)">Epochenvergleich</button>
+      <button onclick="showSub('u','saetze',this)">Schlüsselsätze</button>
+      <button onclick="showSub('u','fragen',this)">Vergleichsfragen + Antworten</button>
+    </div>
+    <div id="u-vergleich" class="sub-panel active">
+      <div class="compare-row"><span class="compare-name">Das Parfum</span><span class="compare-text"><strong style="color:var(--text)">Identitäre Isolation:</strong> fehlender Eigengeruch = kein sozialer Ausweis. Isolation als Ursprung von Gewalt und destruktivem Genie.</span></div>
+      <div class="compare-row"><span class="compare-name">Die Verwandlung</span><span class="compare-text"><strong style="color:var(--text)">Funktionale Isolation:</strong> Gregor verliert seinen Wert für die Familie. Isolation als Folge kapitalistischer Ausbeutung.</span></div>
+      <div class="compare-row"><span class="compare-name">Jugend ohne Gott</span><span class="compare-text"><strong style="color:var(--text)">Moralische Isolation:</strong> Wer Haltung zeigt, wird ausgeschlossen. Isolation als Preis der Integrität.</span></div>
+      <div class="compare-row"><span class="compare-name">Marquise von O.</span><span class="compare-text"><strong style="color:var(--text)">Soziale Isolation:</strong> Erzwungen durch patriarchale Gesellschaft. Das Opfer wird für die Täterhandlung bestraft.</span></div>
+      <div class="compare-row"><span class="compare-name">Die Physiker</span><span class="compare-text"><strong style="color:var(--text)">Strategische Isolation:</strong> Freiwilliger Rückzug als Schutzstrategie – scheitert, weil Isolation keine Kontrolle über die Welt gibt.</span></div>
+      <div class="compare-row" style="border:none"><span class="compare-name">Rilke – Lyrik</span><span class="compare-text"><strong style="color:var(--text)">Existenzielle Isolation:</strong> Einsamkeit als ästhetische Bedingung. Vielschichtig: mal Leid (Panther), mal Würde (Flamingos), mal Schicksal (Herbsttag).</span></div>
+    </div>
+    <div id="u-epoche" class="sub-panel">
+      <div class="epoch-row"><span class="epoch-year">Kleist 1808 (vor 1900)</span><span class="epoch-text">Isolation durch patriarchale Moral. Das Individuum scheitert an gesellschaftlichen Strukturen, nicht an sich selbst. Klassik/Romantik-Spannungsfeld.</span></div>
+      <div class="epoch-row"><span class="epoch-year">Kafka / Rilke 1900–1920er</span><span class="epoch-text">Isolation als existenzielle Grundbedingung des modernen Subjekts. Entfremdung, Identitätsverlust, Sprache als Grenze (Expressionismus / Symbolismus).</span></div>
+      <div class="epoch-row"><span class="epoch-year">Horváth 1937 (Exil)</span><span class="epoch-text">Isolation als Reaktion auf totales System. Moralische Integrität erzwingt Ausschluss. Neue Sachlichkeit + politische Dringlichkeit.</span></div>
+      <div class="epoch-row"><span class="epoch-year">Dürrenmatt 1962</span><span class="epoch-text">Isolation als utopische Strategie im Atomzeitalter – die scheitert. Groteskes Theater, Kalter Krieg, Schweizer Aussenperspektive.</span></div>
+      <div class="epoch-row" style="border:none"><span class="epoch-year">Süskind 1985 (Postmoderne)</span><span class="epoch-text">Isolation dekonstruiert und ironisch überhöht. Grenouille als Anti-Held, der alle Isolationsmuster überbietet. Genremix, Intertextualität.</span></div>
+    </div>
+    <div id="u-saetze" class="sub-panel">
+      <div class="quote-card">In allen Werken erscheint Isolation nicht als Zufall, sondern als Produkt gesellschaftlicher Strukturen, die das Individuum ausgrenzen, funktionalisieren oder zum Schweigen zwingen.</div>
+      <div class="quote-card">Während Rilke Isolation ästhetisch bejaht und Möbius sie strategisch wählt, scheitern Grenouille und Gregor Samsa an ihr – was zeigt, dass Isolation nie eine dauerhafte Lösung sein kann.</div>
+      <div class="quote-card">Kleists Marquise markiert den historischen Ursprung des Themas: Schon 1808 zeigt sich, dass gesellschaftliche Moral und individuelle Würde im Konflikt stehen – ein Thema, das bis Dürrenmatt 1962 virulent bleibt.</div>
+      <div class="quote-card">Allen Figuren gemeinsam ist das Paradox: Die Isolation, die sie schützen soll oder die über sie verhängt wird, zerstört gerade das, was sie bewahren wollten – Identität, Würde, Freiheit oder Wissen.</div>
+      <div class="quote-card">Rilkes «Der Panther» und Kafkas Gregor Samsa sind die stärksten Spiegelbilder: beide Figuren sind in einem «Zimmer» gefangen – physisch oder körperlich – und beide erlöschen langsam in ihrer Isolation.</div>
+    </div>
+    <div id="u-fragen" class="sub-panel">
+      <p class="prose" style="margin-bottom:1rem">Klicke auf eine Frage, um die ausführliche Musterantwort zu sehen:</p>
+
+      <div class="vfrage">
+        <div class="vfrage-q" onclick="toggleFrage(this)">Vergleiche zwei Figuren, die sich bewusst isolieren – welche Motive haben sie? <span class="arrow">▶</span></div>
+        <div class="vfrage-a">
+          <p><strong>Möbius (Die Physiker)</strong> und <strong>Grenouille (Das Parfum)</strong> – beide wählen bewusst Isolation, aber aus völlig unterschiedlichen Motiven.</p>
+          <p>Möbius isoliert sich aus <strong>altruistischer Verantwortung</strong>: Er simuliert Wahnsinn und bleibt in der psychiatrischen Anstalt, weil er seine Weltformel vor der Menschheit schützen will. «Was einmal gedacht wurde, kann nicht mehr zurückgenommen werden» – er versucht, den Gedanken einzuschliessen, indem er sich selbst einschliesst. Das Motiv ist Opferbereitschaft: Freiheit, Familie, Würde geopfert für die Sicherheit der Welt. <span class="werk-ref">Die Physiker</span></p>
+          <p>Grenouille isoliert sich hingegen aus <strong>Selbsterhaltung und Überlegenheitsgefühl</strong>. Er flüchtet in sein inneres «Geruchsreich», zieht sich sieben Jahre in eine Höhle zurück. Seine Isolation ist kein Opfer – sie ist Genuss. Er braucht keine Menschen; er braucht Düfte. Sein Rückzug entspringt nicht Moral, sondern Verachtung. <span class="werk-ref">Das Parfum</span></p>
+          <p><strong>Vergleich:</strong> Beide scheitern letztlich. Möbius scheitert, weil von Zahnd seine Strategie durchkreuzt. Grenouille scheitert, weil das ultimative Parfum ihm nicht das gibt, was er sucht – Zugehörigkeit bleibt unmöglich. Dürrenmatts Botschaft («Was alle angeht, können nur alle lösen») gilt für beide: Isolation löst keine gesellschaftlichen Probleme.</p>
+        </div>
+      </div>
+
+      <div class="vfrage">
+        <div class="vfrage-q" onclick="toggleFrage(this)">Inwiefern ist Isolation bei einem Werk Folge, bei einem anderen Ursache? <span class="arrow">▶</span></div>
+        <div class="vfrage-a">
+          <p>Bei <strong>Gregor Samsa (Die Verwandlung)</strong> ist Isolation die <strong>Folge</strong> seiner Verwandlung: Er verliert seine Funktion als Ernährer, die Familie wendet sich ab, er wird physisch eingeschlossen. Die Isolation eskaliert schrittweise und endet mit seinem Tod. Hier ist Isolation das Ende eines Prozesses. <span class="werk-ref">Die Verwandlung</span></p>
+          <p>Bei <strong>Grenouille (Das Parfum)</strong> ist Isolation hingegen die <strong>Ursache</strong> seiner Entwicklung zum Mörder. Er ist von Geburt an isoliert – und aus dieser Isolation heraus entsteht sein obsessives Streben nach einem Duft, der ihm Zugehörigkeit verschaffen soll. Ohne die frühe totale Isolation gäbe es die Verbrechen nicht. <span class="werk-ref">Das Parfum</span></p>
+          <p>Interessant ist die Marquise von O.: Dort ist Isolation zuerst Folge (der Vergewaltigung und Schwangerschaft), aber dann wird sie zur Ursache ihres mutigen Handelns (die Zeitungsannonce). Isolation als Wendepunkt, der Handlungsfähigkeit erst erzeugt. <span class="werk-ref">Marquise von O.</span></p>
+        </div>
+      </div>
+
+      <div class="vfrage">
+        <div class="vfrage-q" onclick="toggleFrage(this)">Welche Rolle spielt die Gesellschaft als isolierende Kraft in mindestens zwei Werken? <span class="arrow">▶</span></div>
+        <div class="vfrage-a">
+          <p>In <strong>«Jugend ohne Gott»</strong> ist die Gesellschaft das direkte Isolationsinstrument: Die gleichgeschaltete NS-Gesellschaft isoliert jeden, der sich ihr widersetzt. Der Lehrer schreibt «Neger sind auch Menschen» und wird sofort durch kollektiven Druck (Eltern, Direktor, Schüler) in die Isolation gedrängt. Die Gesellschaft als Masse erzwingt Konformität – wer denkt, wird ausgeschlossen. <span class="werk-ref">Jugend ohne Gott</span></p>
+          <p>In <strong>«Die Marquise von O.»</strong> vollzieht die Familie (als kleinste gesellschaftliche Einheit) die Isolation: Der Vater verstösst die Tochter, weil sie die gesellschaftliche Norm verletzt – obwohl sie das Opfer ist. Die Gesellschaft bestraft nicht Schuld, sondern Abweichung. Selbst das Opfer muss isoliert werden, damit die Norm ungestört bleibt. <span class="werk-ref">Marquise von O.</span></p>
+          <p>In <strong>«Die Verwandlung»</strong> ist die Gesellschaft unsichtbar, aber allgegenwärtig: Die Familie reagiert auf Gregor nach gesellschaftlichen Normen (Nützlichkeit, Produktivität). Die Untermieter repräsentieren das Bürgertum, das keine Abweichung duldet. Gregor wird isoliert, weil er die gesellschaftliche Erwartung – Ernährer zu sein – nicht mehr erfüllen kann. <span class="werk-ref">Die Verwandlung</span></p>
+        </div>
+      </div>
+
+      <div class="vfrage">
+        <div class="vfrage-q" onclick="toggleFrage(this)">Wo ist Isolation produktiv, wo zerstörerisch? <span class="arrow">▶</span></div>
+        <div class="vfrage-a">
+          <p><strong>Produktive Isolation:</strong></p>
+          <p>Bei <strong>Rilkes «Der Schauende»</strong> ist Isolation produktiv: Wer sich dem «Grossen» hingibt, verliert vielleicht seinen gesellschaftlichen Namen, aber wächst innerlich. «Sein Wachstum ist: der Tiefbesiegte von immer Grösserem zu sein.» Niederlage als Reifung. <span class="werk-ref">Rilke – Der Schauende</span></p>
+          <p>Auch <strong>Rilkes Flamingos</strong> zeigen produktive Isolation: Die Flamingos ziehen sich «ins Imaginäre» zurück und bewahren damit ihre ästhetische Würde. Isolation als Selbstschutz, der gelingt. <span class="werk-ref">Rilke – Die Flamingos</span></p>
+          <p>Bei <strong>Horváths Lehrer</strong> ist die moralische Isolation am Ende produktiv: Er verliert seinen Job, aber gewinnt seine Integrität zurück. Der Preis ist hoch, der Gewinn immateriell – aber dauerhaft. <span class="werk-ref">Jugend ohne Gott</span></p>
+          <p><strong>Zerstörerische Isolation:</strong></p>
+          <p><strong>Gregor Samsa</strong> stirbt an seiner Isolation – physisch und seelisch. Die Verwandlung zeigt Isolation in ihrer reinsten destruktiven Form: progressiver Verlust von Raum, Würde und Leben. <span class="werk-ref">Die Verwandlung</span></p>
+          <p><strong>Grenouille</strong> – die Isolation macht ihn zum Mörder. Was ohne Empathie und Gemeinschaft entsteht, ist Gewalt. <span class="werk-ref">Das Parfum</span></p>
+          <p><strong>Möbius'</strong> Isolation scheitert strategisch und löst das eigentliche Problem nicht – die Welt ist trotzdem verloren. <span class="werk-ref">Die Physiker</span></p>
+        </div>
+      </div>
+
+      <div class="vfrage">
+        <div class="vfrage-q" onclick="toggleFrage(this)">Wie verändert sich die Darstellung von Isolation zwischen dem 19. und 20. Jahrhundert? <span class="arrow">▶</span></div>
+        <div class="vfrage-a">
+          <p><strong>Kleist (1808, 19. Jahrhundert):</strong> Isolation ist eine gesellschaftlich produzierte, moralische Kategorie. Die Marquise wird isoliert, weil sie gesellschaftliche Normen verletzt – ohne eigenes Verschulden. Isolation ist ungerecht, aber überwindbar: Am Ende kehrt sie in die Gesellschaft zurück. Optimismus ist möglich. <span class="werk-ref">Marquise von O.</span></p>
+          <p><strong>Kafka / Rilke (1900–1920er):</strong> Isolation wird zur existenziellen Grundbedingung. Gregor Samsa ist schon vor der Verwandlung entfremdet. Rilkes lyrisches Ich ist grundlegend anders als alle anderen Menschen. Es gibt keine Lösung, keine Rückkehr – nur tieferes Verstehen der eigenen Einsamkeit. Isolation ist nicht mehr gesellschaftliches Unglück, sondern ontologischer Zustand. <span class="werk-ref">Die Verwandlung · Rilke</span></p>
+          <p><strong>Horváth (1937):</strong> Isolation wird politisch: Wer denkt, wird ausgegrenzt. Das System isoliert aktiv. Die Diagnose ist gesellschaftskritisch und dringlich. <span class="werk-ref">Jugend ohne Gott</span></p>
+          <p><strong>Dürrenmatt (1962):</strong> Isolation als bewusste Entscheidung im Angesicht technologischer Verantwortung – und als utopische Illusion. Das Paradox ist vollständig: Selbst gewählte Isolation kann die Welt nicht retten. <span class="werk-ref">Die Physiker</span></p>
+          <p><strong>Fazit:</strong> Im 19. Jh. ist Isolation ein gesellschaftliches Problem mit möglicher Lösung. Im 20. Jh. wird sie zur Grundbedingung, zur politischen Waffe und schliesslich zur strategischen Option – die aber immer scheitert. Die Aussichtslosigkeit nimmt zu; der Widerstand auch.</p>
+        </div>
+      </div>
+
+      <div class="vfrage">
+        <div class="vfrage-q" onclick="toggleFrage(this)">Tiere als Symbole – Der Panther (Rilke) im Vergleich mit anderen Werken <span class="arrow">▶</span></div>
+        <div class="vfrage-a">
+          <p>Rilkes <strong>Panther</strong> ist das Tier-Dinggedicht par excellence: Das Tier als Spiegel der isolierten menschlichen Seele. Der Panther sieht nichts mehr, sein «grosser Wille» ist betäubt. Das Tier im Käfig repräsentiert nicht Animalität, sondern verlorene Würde und Kraft. <span class="werk-ref">Rilke – Der Panther</span></p>
+          <p>Im selben Gedichtband: <strong>Die Flamingos</strong> – hier sind Tiere das Gegenteil: Ihre Isolation ist selbstgewählt und würdevoll. «Schreiten einzeln ins Imaginäre.» Tier als Symbol für ästhetische Autarkie. <span class="werk-ref">Rilke – Die Flamingos</span></p>
+          <p>Bei <strong>Kafka</strong> wird Gregor Samsa selbst zum Tier (Ungeziefer). Aber Kafka gibt ihm kein konkretes Tier – «Ungeziefer» ist eine kulturelle Kategorie (nicht opferfähig, nutzlos, eklig). Das Tier-Werden ist keine Befreiung, sondern die Vollendung gesellschaftlicher Ausgrenzung. <span class="werk-ref">Die Verwandlung</span></p>
+          <p>Bei <strong>Süskind</strong> heisst Grenouilles Name «Frosch» – ein kleines, glitschiges, verachtetes Tier. Der Name ist Programm: Grenouille kriecht durch die Welt wie ein Frosch, kalt und ungeliebt. <span class="werk-ref">Das Parfum</span></p>
+          <p><strong>Fazit:</strong> Tiere in diesen Werken sind immer Spiegel gesellschaftlicher Ausgrenzung. Das Tier ist das, was die Gesellschaft aus dem Menschen macht – oder was der Mensch wählt zu werden, um zu überleben. Rilke nutzt das Tier als Möglichkeit der Würde; Kafka und Süskind als Diagnose der Erniedrigung.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
 
 </div><!-- /container -->
+
+<!-- ══════════════════════════════════════════
+     AUTOR-MODALS
+══════════════════════════════════════════ -->
+<script>
+const AUTOREN = {
+  suskind: {
+    title: "Patrick Süskind",
+    subtitle: "* 1949 in Ambach am Starnberger See",
+    sections: [
+      { title: "Biographie", content: `<p>Patrick Süskind wurde 1949 in Ambach am Starnberger See geboren. Er studierte Geschichte in München und Aix-en-Provence. Sein Leben ist paradoxerweise ein Spiegelbild seines berühmtesten Protagonisten: Süskind ist extrem <strong>medienscheu</strong> und verweigert seit Jahrzehnten Interviews, Fotos und öffentliche Auftritte. Er lebt zurückgezogen, mit wechselnden Wohnsitzen in München, Paris und Montona.</p><p>Sein Ruhm entstand trotz – oder wegen – dieser totalen Abwesenheit von der Öffentlichkeit. Er gilt als <strong>literarischer Einsiedler</strong>: ein ironischer Kommentar zum Thema Isolation.</p>` },
+      { title: "Entstehung des Parfums", content: `<p>Süskind begann das Manuskript in den frühen 1980er Jahren. Er arbeitete mehrere Jahre daran. Die Idee entstand aus einem <strong>Interesse an Gerüchen</strong> und der Frage: Was wäre, wenn jemand überhaupt keinen Eigengeruch hätte? Das Parfum erschien 1985 bei Diogenes Zürich.</p><p>Der Verlag hatte zunächst Bedenken – ein historischer Roman über Gerüche schien schwer vermarktbar. Der Erfolg war dennoch enorm: Das Buch wurde in über 40 Sprachen übersetzt, Millionen Mal verkauft und 2006 von Tom Tykwer verfilmt.</p>` },
+      { title: "Werk & Einflüsse", content: `<p>Süskinds Gesamtwerk ist klein aber präzise: <strong>Das Parfum (1985)</strong>, die Novelle Die Taube (1987), das Theaterstück Der Kontrabass (1981) und wenige Essays. Er schrieb keine Folgewerke vergleichbaren Umfangs – was das Parfum zum singulären Lebenswerk macht.</p><p>Einflüsse: <strong>E.T.A. Hoffmann</strong> (Romantische Schauerlichkeit), <strong>Günter Grass</strong> (Üppigkeit der Sprache, historisches Panorama), <strong>Voltaire</strong> (ironischer auktorialer Erzähler). Die Postmoderne spiegelt sich in der Genremischung und Selbstreflexivität.</p>` },
+      { title: "Bedeutung & Rezeption", content: `<p>Das Parfum gilt als einer der meistverkauften deutschsprachigen Romane aller Zeiten. Es ist gleichzeitig Unterhaltungsliteratur und Hochliteratur – eine postmoderne Grenzauflösung. Süskind selbst verweigerte alle Preise (darunter den Goethe-Preis), was seine Haltung zur Öffentlichkeit unterstreicht.</p><p><strong>Für die Prüfung:</strong> Die Parallele zwischen Süskind (medienscheu, isoliert) und Grenouille (ohne Identität, isoliert) ist kein Zufall. Autor und Figur spiegeln sich.</p>` }
+    ]
+  },
+  kafka: {
+    title: "Franz Kafka",
+    subtitle: "1883–1924 · Prag",
+    sections: [
+      { title: "Biographie", content: `<p>Franz Kafka wurde 1883 in Prag als Sohn einer deutsch-jüdischen Kaufmannsfamilie geboren. Er studierte Jura, arbeitete bei einer Versicherungsgesellschaft – ein Job, den er hasste und als Entfremdung erlebte. Er schrieb nachts, parallel zur Anstellung.</p><p>Sein Verhältnis zum <strong>dominanten Vater Hermann</strong> ist zentral: Der «Brief an den Vater» (1919) ist ein erschütterndes Zeugnis emotionaler Unterdrückung. Kafka verlobte sich dreimal (zweimal mit Felice Bauer), heiratete nie. Er starb 1924 an Tuberkulose.</p>` },
+      { title: "Werk & Nachlass", content: `<p>Kafka veröffentlichte zu Lebzeiten nur wenig. Seinem Freund und Nachlassverwalter <strong>Max Brod</strong> gab er den Auftrag, alles zu verbrennen – Brod missachtete dies und rettete das Werk. Hauptwerke: <strong>Die Verwandlung (1915)</strong>, Der Process (1925, postum), Das Schloss (1926, postum), Amerika (1927, postum), In der Strafkolonie (1919).</p><p>Die meisten seiner Romane blieben Fragment – unvollendet, wie Kafkas eigenes Leben.</p>` },
+      { title: "Entstehung der Verwandlung", content: `<p>Die Verwandlung entstand im Herbst 1912, in wenigen Wochen intensiven Schreibens. Kafka schrieb sie direkt nach «Das Urteil», in einer Phase hoher Produktivität. Die autobiografischen Bezüge sind evident: Gregor Samsa = Franz Kafka (gleiche Initialen F.S./G.S.), die erdrückende Vaterfigur, die Schuldenfalle der Arbeit.</p><p>Kafka selbst war sich des Wertes unsicher – er las es öffentlich vor und berichtete, das Publikum habe gelacht. Der absurde Humor ist beabsichtigt.</p>` },
+      { title: "Epoche & Einordnung", content: `<p><strong>Expressionismus/Moderne:</strong> Verzerrung der Realität als Ausdruck innerer Zustände. <strong>Prager Deutsche Literatur:</strong> eine Minderheitensprache in einem österreichischen Reich im Zerfall. Kafkas dreifache Isolation: als Jude in einer nichtjüdischen Gesellschaft, als Deutschsprachiger in Böhmen, als Schriftsteller in einer Bürokrats-Welt.</p><p><strong>Nachwirkung:</strong> Camus, Beckett, Sartre, Orwell – alle stehen in Kafkas Schuld. «Kafkaesk» ist in den Duden aufgenommen worden.</p>` }
+    ]
+  },
+  horvath: {
+    title: "Ödön von Horváth",
+    subtitle: "1901–1938 · Fiume (heute Rijeka)",
+    sections: [
+      { title: "Biographie", content: `<p>Ödön von Horváth wurde 1901 in Fiume (heute Rijeka, Kroatien) als Sohn eines österreichisch-ungarischen Diplomaten geboren. Er wuchs in Budapest, Wien und München auf – ein <strong>Heimatloser</strong> von Geburt, der mehrere Sprachen sprach und sich nirgends ganz zugehörig fühlte. Deutsch war für ihn eine Wahlsprache, keine Muttersprache.</p><p>Er starb 1938 tragisch jung: Ein Ast brach bei einem Sturm auf den Champs-Élysées ab und traf ihn tödlich. Er war 36 Jahre alt, kurz nachdem er vor den Nazis aus Wien geflohen war.</p>` },
+      { title: "Entstehung von Jugend ohne Gott", content: `<p>Der Roman entstand 1937 im Exil und wurde im selben Jahr veröffentlicht – zunächst in Amsterdam bei Allert de Lange. Er gilt als direktes Reaktionswerk auf den österreichischen «Anschluss» und die zunehmende NS-Macht.</p><p>Horváth schrieb bewusst eine <strong>Parabel</strong>: Die Figuren sind Typen (namenlos), der Ort ist nicht genau benannt. Das macht den Roman zeitlos. Er wollte keine Historisierung, sondern eine Diagnose der menschlichen Tendenz zum Mitläufertum.</p>` },
+      { title: "Werk & Stil", content: `<p>Hauptwerke: <strong>Geschichten aus dem Wiener Wald (1931)</strong> – ein Volkstheaterstück, das das Kleinbürgertum demontiert. <strong>Kasimir und Karoline (1932)</strong>. <strong>Jugend ohne Gott (1937)</strong> ist sein bedeutendstes Prosawerk.</p><p>Stil: <strong>Neue Sachlichkeit</strong> – nüchterne, direkte Sprache, keine Verschönerung. Horváth interessiert sich für das Banale als Träger des Bösen: Alltagssprache als Ideologieträger. Die kurzen, klaren Sätze haben Schlagkraft.</p>` },
+      { title: "Bedeutung & Einordnung", content: `<p>Horváth ist neben Brecht der wichtigste deutschsprachige Dramatiker der Weimarer Republik. Er analysiert das <strong>Kleinbürgertum</strong> als Nährboden des Faschismus – keine Arbeiterklasse, keine Aristokratie, sondern die Mitte, die sich wegduckt.</p><p><strong>Für die Prüfung:</strong> Horváths eigene Biographie als «Heimatloser» spiegelt das Thema Isolation direkt. Er kannte die Erfahrung, nirgends dazuzugehören – und schrieb darüber.</p>` }
+    ]
+  },
+  kleist: {
+    title: "Heinrich von Kleist",
+    subtitle: "1777–1811 · Frankfurt an der Oder",
+    sections: [
+      { title: "Biographie", content: `<p>Heinrich von Kleist wurde 1777 in Frankfurt an der Oder als Sohn einer preussischen Offiziersfamilie geboren. Er diente kurz beim Militär, brach ab und studierte Mathematik und Philosophie. Die Begegnung mit Kants Erkenntnistheorie («Kant-Krise» 1801) erschütterte ihn fundamental: Wenn wir die Welt nie so erkennen können, wie sie wirklich ist, verliert alles Sicherheit.</p><p>Er starb 1811 durch Doppelsuizid mit der unheilbar kranken Henriette Vogel am Wannsee bei Berlin. Er war 34 Jahre alt.</p>` },
+      { title: "Entstehung der Marquise von O.", content: `<p>Die Novelle entstand um 1806/07 und wurde 1808 erstmals in Kleists eigener Zeitschrift <strong>«Phöbus»</strong> veröffentlicht. Die Quelle war ein historischer Bericht aus Montaignes «Essais»: Eine Witwe, die ohne bekannte Ursache schwanger wurde.</p><p>Die Veröffentlichung war skandalös: Der implizite Inhalt (Vergewaltigung einer ohnmächtigen Frau) wurde als unschicklich empfunden. Goethe soll gesagt haben, er wäre damit «nicht umgegangen» – eine der wichtigsten Nicht-Empfehlungen der Literaturgeschichte.</p>` },
+      { title: "Werk & Stil", content: `<p>Hauptwerke: <strong>Penthesilea (1808)</strong>, <strong>Michael Kohlhaas (1810)</strong>, <strong>Das Käthchen von Heilbronn (1810)</strong>, <strong>Der zerbrochene Krug (1806)</strong>, <strong>Die Marquise von O. (1808)</strong>, <strong>Das Erdbeben in Chili (1807)</strong>.</p><p>Kleists Stil ist hochgradig spezifisch: <strong>hypotaktische Satzstrukturen</strong> (verschachtelte Nebensätze), exzessive Verwendung von <strong>indirekter Rede</strong> (die Verantwortung verschleiert), plötzliche Wendungen. Alles wirkt kontrolliert und zugleich am Rand des Kontrollverlusts.</p>` },
+      { title: "Bedeutung & Einordnung", content: `<p>Kleist steht zwischen Klassik und Romantik. Er ist psychologisch tiefschärfer als viele Romantiker, aber moralisch ambivalenter als die Klassiker. Er gilt als <strong>Vorläufer der literarischen Moderne</strong>: Keine eindeutigen Gut/Böse-Zuschreibungen, keine beruhigenden Schlüsse.</p><p><strong>Für die Prüfung:</strong> Kleist ist dein einziges Werk vor 1900 – das wird erwähnt werden! Betone: Er zeigt, dass Isolation durch gesellschaftliche Strukturen (Patriarchat, Kriegsrecht) schon im 19. Jh. ein zentrales Thema war – lange vor Kafka und Rilke.</p>` }
+    ]
+  },
+  durrenmatt: {
+    title: "Friedrich Dürrenmatt",
+    subtitle: "1921–1990 · Konolfingen, Schweiz",
+    sections: [
+      { title: "Biographie", content: `<p>Friedrich Dürrenmatt wurde 1921 in Konolfingen im Kanton Bern geboren, als Sohn eines reformierten Pfarrers. Das religiöse Erbe – Suche nach Gerechtigkeit, Frage nach Schuld – prägt sein ganzes Werk. Er studierte Philosophie, Germanistik, Naturwissenschaften in Zürich und Bern, ohne abzuschliessen.</p><p>Er lebte in Neuchâtel, reiste viel, war politisch engagiert. Sein Verhältnis zur Schweiz war ambivalent: Er liebte das Land, kritisierte aber seine Selbstgefälligkeit scharf. Er starb 1990 in Neuchâtel.</p>` },
+      { title: "Entstehung der Physiker", content: `<p>Die Physiker entstand 1961 und wurde 1962 am <strong>Schauspielhaus Zürich</strong> uraufgeführt. Der Entstehungskontext ist entscheidend: <strong>Kalter Krieg</strong>, Atombombe, Kuba-Krise (Oktober 1962 – im selben Jahr!). Die Frage «Darf ein Wissenschaftler forschen, ohne an die Konsequenzen zu denken?» war existenziell akut.</p><p>Dürrenmatt schrieb das Stück in drei Wochen. Die <strong>21 Punkte</strong> (Anmerkungen zum Stück) entstanden danach als dramaturgische Reflexion – sie gehören zum kanonischen Text.</p>` },
+      { title: "Werk & Stil", content: `<p>Hauptwerke: <strong>Der Besuch der alten Dame (1956)</strong> – sein erfolgreichstes Stück weltweit. <strong>Die Physiker (1962)</strong>. <strong>Romulus der Grosse (1949)</strong>. Prosa: <strong>Der Richter und sein Henker (1950)</strong>, <strong>Das Versprechen (1958)</strong>.</p><p>Stil: <strong>Groteskes Theater</strong> – das Komische und das Tragische sind untrennbar. Dürrenmatts Credo: «Eine Geschichte ist dann zu Ende gedacht, wenn sie ihre schlimmstmögliche Wendung genommen hat.» Der Zufall als dramaturgisches Prinzip: nicht Schicksal, sondern der absurde Zufall regiert.</p>` },
+      { title: "Die 21 Punkte (Auszug)", content: `<p>Punkt 2: <strong>«Was alle angeht, können nur alle lösen.»</strong> – Die unmögliche Forderung: Möbius' individuelle Isolation kann kein globales Problem lösen.</p><p>Punkt 5: <strong>«Eine Geschichte ist dann zu Ende gedacht, wenn sie ihre schlimmstmögliche Wendung genommen hat.»</strong> – Dr. von Zahnd als schlimmstmögliche Wendung.</p><p>Punkt 20: <strong>«Die Komödie ist der Ausdruck der Hoffnungslosigkeit, aber auch der Trotz dagegen.»</strong> – Warum Die Physiker eine Komödie ist, obwohl die Welt verloren geht.</p><p><strong>Für die Prüfung:</strong> Die 21 Punkte zeigen, dass Dürrenmatt Theater als politisch-philosophisches Instrument versteht, nicht als blossen Unterhaltungsort.</p>` }
+    ]
+  },
+  rilke: {
+    title: "Rainer Maria Rilke",
+    subtitle: "1875–1926 · Prag",
+    sections: [
+      { title: "Biographie", content: `<p>René Karl Wilhelm Johann Josef Maria Rilke – bekannt als <strong>Rainer Maria Rilke</strong> – wurde 1875 in Prag geboren. Seine Mutter kleidete ihn als kleines Mädchen, weil sie sich ein Mädchen gewünscht hatte – eine frühe Identitätskrise, die seine lebenslange Sensibilität für Einsamkeit und Identitätsfragen prägte.</p><p>Er studierte Kunst- und Literaturgeschichte, reiste viel (Russland, Paris, Ägypten, Spanien), lebte in Schlössern adliger Gönnerinnen. Er starb 1926 an Leukämie, vermutlich ausgelöst durch einen Rosendorn. Sein letztes Werk: die <strong>Sonette an Orpheus</strong> und die <strong>Duineser Elegien</strong>.</p>` },
+      { title: "Rodin & Paris – Entstehung der Dinggedichte", content: `<p>Der entscheidende Einfluss: <strong>Auguste Rodin</strong>, für den Rilke 1902–1903 als Sekretär arbeitete. Rodin lehrte ihn, Objekte nicht zu deuten, sondern zu sehen. «Travailler, toujours travailler» – immer arbeiten, immer schauen. Daraus entstand Rilkes Poetologie des <strong>Dinggedichts</strong>: Das Ding (Tier, Kunstwerk, Pflanze) wird so präzise beschrieben, dass es über sich hinausweist.</p><p>Der <strong>Jardin des Plantes</strong> in Paris (Zoo und Naturgeschichte) war sein Labor: Der Panther, die Flamingos, das Karussell (Jardin du Luxembourg) – alle entstanden durch direktes Schauen.</p>` },
+      { title: "Epochen & Sammlungen", content: `<p><strong>Frühwerk (bis 1902):</strong> «Ich fürchte mich vor der Menschen Wort» (1897), «Buch der Bilder» (1902). Symbolismus, romantische Einflüsse, noch nicht der reife Rilke.</p><p><strong>Neue Gedichte (1907/08):</strong> Der Panther, Flamingos, Karussell, Liebes-Lied, Archaischer Torso – das Herzstück deiner Liste. Dinggedicht als vollentwickeltes Konzept.</p><p><strong>Spätwerk:</strong> Duineser Elegien (1922), Sonette an Orpheus (1922) – komplexer, philosophischer, weniger zugänglich.</p>` },
+      { title: "Bedeutung & Einordnung", content: `<p>Rilke gilt als einer der bedeutendsten Lyriker deutscher Sprache, gleichrangig mit Goethe und Hölderlin. Er steht am Übergang von <strong>Symbolismus</strong> (Dinge als Symbole des Unsagbaren) zur <strong>Moderne</strong> (das Subjekt als radikal Einsames).</p><p><strong>Für die Prüfung:</strong> Rilke als Lyrik-Autor bietet dir maximale Flexibilität. Du kannst fast jedes Rilke-Gedicht mit dem Isolationsthema verbinden – wähle für Vergleiche immer das Gedicht, das zum jeweiligen Prosawerk am stärksten passt.</p>` }
+    ]
+  }
+};
+
+function openModal(key) {
+  const data = AUTOREN[key];
+  if (!data) return;
+  document.getElementById('modal-title').textContent = data.title;
+  document.getElementById('modal-subtitle').textContent = data.subtitle;
+  let html = '';
+  data.sections.forEach(s => {
+    html += `<div class="modal-section"><div class="modal-section-title">${s.title}</div>${s.content}</div>`;
+  });
+  document.getElementById('modal-body').innerHTML = html;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+function showMain(id, btn) {
+  document.querySelectorAll('.container > .panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.main-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function showSub(prefix, id, btn) {
+  const card = btn.closest('.werk-card');
+  card.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
+  card.querySelectorAll('.sub-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(prefix + '-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+function showRilke(id, btn) {
+  const wrap = btn.closest('.werk-body');
+  wrap.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.rilke-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleFrage(btn) {
+  const isOpen = btn.classList.contains('open');
+  document.querySelectorAll('.vfrage-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if (!isOpen) {
+    btn.classList.add('open');
+    btn.nextElementSibling.classList.add('open');
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
 
 <footer class="site-footer">
   Matura Deutsch 2026 · Manuel Eicher · Kantonsschule Olten · Lehrerin N. Orfei
 </footer>
-
-<script>
-  function showMain(id, btn) {
-    document.querySelectorAll('.container > .panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.main-nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  function showSub(prefix, id, btn) {
-    const card = btn.closest('.werk-card');
-    card.querySelectorAll('.sub-panel').forEach(p => p.classList.remove('active'));
-    card.querySelectorAll('.sub-nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(prefix + '-' + id).classList.add('active');
-    btn.classList.add('active');
-  }
-
-  function showRilke(id, btn) {
-    const wrap = btn.closest('.werk-body');
-    wrap.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.rilke-nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-  }
-</script>
 </body>
 </html>
+HTMLEOF
+echo "Done"
